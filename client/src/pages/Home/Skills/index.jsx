@@ -4,19 +4,25 @@ import { Section, SectionHeader } from '../../../components/Styled';
 
 const Options = styled.ul`
   list-style: none;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   background-color: var(--primary);
   width: max-content;
   border-radius: 5px 5px 0 0;
-  overflow: hidden;
+  margin: 1rem 0 0 0;
 `;
 
 const Option = styled.li`
+  width: 100%;
   button {
+    width: 100%;
     padding: 0.5rem 0.75rem;
     border-radius: none;
     border: none;
+    border-inline: 1px solid var(--primary);
     background: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
 
     ${({ isActive }) =>
       isActive
@@ -26,7 +32,26 @@ const Option = styled.li`
           `
         : css``};
   }
+
+  :first-child button {
+    border: none;
+    border-left: 1px solid var(--primary);
+  }
+  :last-child button {
+    border: none;
+    border-right: 1px solid var(--primary);
+  }
 `;
+
+const SkillsContainer = styled.div`
+  padding: 1rem;
+`;
+
+const skills = {
+  front: {},
+  back: {},
+  tools: {},
+};
 
 function Skills() {
   const [active, setActive] = useState(0);
@@ -50,6 +75,12 @@ function Skills() {
           </button>
         </Option>
       </Options>
+
+      <SkillsContainer>
+        {active === 0 && <div>React</div>}
+        {active === 1 && <div>NodeJS</div>}
+        {active === 2 && <div>Eslint</div>}
+      </SkillsContainer>
     </Section>
   );
 }

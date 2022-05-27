@@ -1,17 +1,18 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Brand = styled.p`
   text-transform: uppercase;
   width: min-content;
-  line-height: 1rem;
   letter-spacing: 2px;
   font-weight: bold;
+  line-height: clamp(0.75rem, 1rem + 2vw, 1rem);
+  font-size: clamp(0.75rem, 1rem + 0.3vw, 1rem);
 `;
 
 export const Container = styled.div`
   width: 85vw;
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: space-between;
 `;
