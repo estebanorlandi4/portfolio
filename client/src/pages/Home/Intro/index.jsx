@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import CV from '../../../assets/Esteban Orlandi - CV - Full Stack.pdf';
+import FadeIn from '../../../components/Animations';
 import { Container, Header, Name, Resume, STag } from './styled';
 
 export function Tag({ label }) {
@@ -21,30 +23,43 @@ export function Tag({ label }) {
 }
 
 function Intro() {
-  const tags = ['Web Developer', 'Full Stack Developer'];
+  const tags = [
+    'Web Developer',
+    'Full Stack Developer',
+    'Front End',
+    'Back End',
+  ];
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (tags[index + 1]) setIndex(index + 1);
       else setIndex(0);
-    }, 4 * 1000);
+    }, tags[index].length * 100 + 1 * 1000);
     return () => clearInterval(interval);
   }, [index]);
 
   return (
-    <Container>
+    <Container style={{ height: `${window.innerHeight}px` }}>
       <div className="info">
         <Header>
-          <Name>esteban Orlandi</Name>
+          <FadeIn duration="1s" from="0, -10rem">
+            <Name>esteban Orlandi</Name>
+          </FadeIn>
 
-          <p>
-            &lt;{tags.map((label, i) => i === index && <Tag label={label} />)}
-            &gt;
-          </p>
+          <FadeIn duration="1s" delay="1s" from="0, -10rem">
+            <p>
+              &lt;{tags.map((label, i) => i === index && <Tag label={label} />)}
+              &gt;
+            </p>
+          </FadeIn>
         </Header>
 
-        <Resume type="button">Resume</Resume>
+        <FadeIn duration="1s" delay="2s" from="0, 10rem">
+          <Resume as="a" href={CV} target="_blank" rel="noreferrer">
+            Resume
+          </Resume>
+        </FadeIn>
       </div>
     </Container>
   );

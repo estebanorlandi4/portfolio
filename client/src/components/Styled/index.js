@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 60vw;
   min-width: 30rem;
+  max-width: 55rem;
   margin: 0 auto;
 `;
 
@@ -11,5 +12,6 @@ export const SectionHeader = styled.h2`
 `;
 
 export const Section = styled.section`
-  padding: 10vh 0;
+  padding: 3rem 0;
+  margin: 20vh 0;
 `;

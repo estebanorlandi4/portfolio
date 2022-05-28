@@ -1,47 +1,86 @@
-import styled from 'styled-components';
-import { Container as GeneralContainer } from '../Styled';
+import { useState } from 'react';
 
-const Container = styled.footer`
-  color: #fff;
-  background-color: #000;
-  padding: 4rem 0;
-`;
-const Form = styled.form`
-  margin: 1rem 0 0 0;
-  display: flex;
-  flex-flow: column;
-  gap: 1rem;
-  width: 100%;
-`;
+import Input from '../Input';
+
+import { ContactMethods, Icons } from '../../utils';
+import { Container, SectionHeader } from '../Styled';
+import { Contacts, FooterContainer, Form, Grid } from './styled';
+import Contact from '../Contact';
+
+const initialState = {
+  name: '',
+  email: '',
+  message: '',
+};
 
 function Footer() {
-  return (
-    <Container>
-      <GeneralContainer>
-        <h2>Contacto</h2>
-        <Form>
-          <label htmlFor="name">
-            Your Name
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Complete Name"
-            />
-          </label>
+  const [inputs, setInputs] = useState(initialState);
 
-          <label htmlFor="message">
-            Your Message
-            <textarea
-              id="message"
-              name="message"
-              type="text"
-              placeholder="Your message"
-            />
-          </label>
-        </Form>
-      </GeneralContainer>
-    </Container>
+  const onChange = ({ target: { name, value } }) => {
+    setInputs((old) => ({ ...old, [name]: value }));
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    // eslint-disable-next-line
+    console.log(inputs);
+  };
+
+  return (
+    <FooterContainer>
+      <Container>
+        <section>
+          <SectionHeader>Contacto</SectionHeader>
+
+          <Grid>
+            <Form onSubmit={onSubmit}>
+              <Input
+                onChange={onChange}
+                name="name"
+                placeholder="Your Name"
+                type="text"
+              />
+
+              <Input
+                onChange={onChange}
+                name="email"
+                placeholder="Your Email"
+                type="text"
+              />
+
+              <Input
+                onChange={onChange}
+                name="message"
+                placeholder="Type your message here"
+                as="textarea"
+              />
+
+              <button type="submit">Send message</button>
+            </Form>
+
+            <Contacts>
+              <ul>
+                <li>
+                  <Contact url={ContactMethods.linkedin.url}>
+                    <Icons.Linkedin size={24} />
+                  </Contact>
+                </li>
+                <li>
+                  <Contact url={ContactMethods.github.url}>
+                    <Icons.Github size={24} />
+                  </Contact>
+                </li>
+                <li>
+                  <Contact url={ContactMethods.gmail.url}>
+                    <Icons.Gmail size={24} />
+                  </Contact>
+                </li>
+              </ul>
+            </Contacts>
+          </Grid>
+        </section>
+      </Container>
+    </FooterContainer>
   );
 }
 

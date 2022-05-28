@@ -1,12 +1,23 @@
 import styled from 'styled-components';
 
 export const Brand = styled.p`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   text-transform: uppercase;
   width: min-content;
   letter-spacing: 2px;
-  font-weight: bold;
-  line-height: clamp(0.75rem, 1rem + 2vw, 1rem);
-  font-size: clamp(0.75rem, 1rem + 0.3vw, 1rem);
+  font-weight: 900;
+  line-height: 0.9rem;
+  font-size: 0.75rem;
+
+  .name {
+    color: #1e1e1e;
+  }
+
+  .logo {
+    width: 2rem;
+  }
 `;
 
 export const Container = styled.div`
@@ -14,6 +25,7 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 0.75rem 0;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 `;
 

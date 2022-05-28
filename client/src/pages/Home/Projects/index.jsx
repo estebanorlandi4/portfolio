@@ -60,7 +60,7 @@ function Projects() {
                 )}
 
                 {github && (
-                  <URL href={url} target="_blank" rel="noreferrer">
+                  <URL href={github} target="_blank" rel="noreferrer">
                     <BsGithub size={14} /> GitHub
                   </URL>
                 )}

@@ -5,11 +5,6 @@ export const AccountsContainer = styled.div`
   flex-flow: column;
   align-items: center;
   gap: 0.5rem;
-  position: fixed;
-  top: 50%;
-  left: 2rem;
-  z-index: 9999;
-  transform: translate(0, -50%);
 
   ::before,
   ::after {
@@ -26,6 +21,7 @@ export const AccountsContainer = styled.div`
   }
 
   .icon {
+    box-sizing: content-box;
     color: #000;
     padding: 0.25rem;
     --size: 1.25rem;

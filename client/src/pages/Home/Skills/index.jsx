@@ -1,60 +1,14 @@
 import { useState } from 'react';
-import styled, { css } from 'styled-components';
+
 import { Section, SectionHeader } from '../../../components/Styled';
+import { skills } from '../../../utils/skills';
+import { Card, Option, Options, SkillsContainer } from './styled';
 
-const Options = styled.ul`
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  background-color: var(--primary);
-  width: max-content;
-  border-radius: 5px 5px 0 0;
-  margin: 1rem 0 0 0;
-`;
-
-const Option = styled.li`
-  width: 100%;
-  button {
-    width: 100%;
-    padding: 0.5rem 0.75rem;
-    border-radius: none;
-    border: none;
-    border-inline: 1px solid var(--primary);
-    background: #fff;
-    font-size: 0.9rem;
-    font-weight: 600;
-
-    ${({ isActive }) =>
-      isActive
-        ? css`
-            background: var(--primary);
-            color: #fff;
-          `
-        : css``};
-  }
-
-  :first-child button {
-    border: none;
-    border-left: 1px solid var(--primary);
-  }
-  :last-child button {
-    border: none;
-    border-right: 1px solid var(--primary);
-  }
-`;
-
-const SkillsContainer = styled.div`
-  padding: 1rem;
-`;
-
-const skills = {
-  front: {},
-  back: {},
-  tools: {},
-};
+const size = 48;
 
 function Skills() {
   const [active, setActive] = useState(0);
+
   return (
     <Section>
       <SectionHeader>Habilidades</SectionHeader>
@@ -77,9 +31,54 @@ function Skills() {
       </Options>
 
       <SkillsContainer>
-        {active === 0 && <div>React</div>}
-        {active === 1 && <div>NodeJS</div>}
-        {active === 2 && <div>Eslint</div>}
+        {active === 0 && (
+          <div>
+            <h3>Front-End</h3>
+            <ul>
+              {skills.front.map(({ icon, name, color }) => {
+                const Icon = icon || 'img';
+                return (
+                  <Card>
+                    <Icon size={size} color={color} />
+                    {name}
+                  </Card>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+        {active === 1 && (
+          <div>
+            <h3>Back-End</h3>
+            <ul>
+              {skills.back.map(({ icon, name, color }) => {
+                const Icon = icon || 'img';
+                return (
+                  <Card>
+                    <Icon size={size} color={color} />
+                    {name}
+                  </Card>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+        {active === 2 && (
+          <div>
+            <h3>Tools</h3>
+            <ul>
+              {skills.tools.map(({ icon, name, color }) => {
+                const Icon = icon || 'img';
+                return (
+                  <Card>
+                    <Icon size={size} color={color} />
+                    {name}
+                  </Card>
+                );
+              })}
+            </ul>
+          </div>
+        )}
       </SkillsContainer>
     </Section>
   );

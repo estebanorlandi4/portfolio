@@ -4,7 +4,6 @@ export const Container = styled.div`
   position: relative;
   display: grid;
   place-items: center;
-  height: ${window.innerHeight}px;
 
   .info {
     display: flex;
@@ -19,6 +18,8 @@ export const Container = styled.div`
     gap: 0.5rem;
     min-height: 1.25rem;
     height: 1.25rem;
+    color: var(--primary);
+    font-size: clamp(0.75rem, 0.5rem + 2vw, 1.5rem);
   }
 `;
 
@@ -30,8 +31,31 @@ export const Header = styled.div`
 
 export const Name = styled.h1`
   text-transform: capitalize;
-  font-size: 3rem;
-  letter-spacing: 2px;
+  font-size: clamp(1.5rem, 1.5rem + 2vw, 4rem);
+  letter-spacing: 3px;
+  font-weight: 800;
+
+  color: transparent;
+  background-clip: text;
+
+  background-image: var(--bg-linear);
+
+  background-size: 300%;
+  background-position: 0 0;
+
+  animation: bg 5s infinite linear;
+
+  @keyframes bg {
+    from {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    to {
+      background-position: 0 50%;
+    }
+  }
 `;
 
 export const STag = styled.span`
@@ -39,7 +63,6 @@ export const STag = styled.span`
   color: #764abc;
   display: flex;
   gap: 1rem;
-  font-size: 1.25rem;
   letter-spacing: 1.5px;
   width: max-content;
   padding: 0 0.17rem;
@@ -74,10 +97,18 @@ export const STag = styled.span`
 `;
 
 export const Resume = styled.button`
-  background-color: #000;
   border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  font-size: 1.15rem;
 
-  padding: 0.75rem 1.5rem;
-  font-size: 1.25rem;
+  background-color: #000;
   color: #fff;
+
+  transition: all 0.25s;
+
+  :hover {
+    transform: translate(0, -5px);
+    background-color: var(--primary);
+  }
 `;
