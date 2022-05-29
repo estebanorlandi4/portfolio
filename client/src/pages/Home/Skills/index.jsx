@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import Skill from '../../../components/Skill';
 
 import { Section, SectionHeader } from '../../../components/Styled';
 import { skills } from '../../../utils/skills';
-import { Card, Option, Options, SkillsContainer } from './styled';
+import { Option, Options, SkillsContainer } from './styled';
 
-const size = 48;
+const size = 44;
 
 function Skills() {
   const [active, setActive] = useState(0);
@@ -31,54 +32,30 @@ function Skills() {
       </Options>
 
       <SkillsContainer>
-        {active === 0 && (
-          <div>
-            <h3>Front-End</h3>
-            <ul>
-              {skills.front.map(({ icon, name, color }) => {
-                const Icon = icon || 'img';
-                return (
-                  <Card>
-                    <Icon size={size} color={color} />
-                    {name}
-                  </Card>
-                );
-              })}
-            </ul>
-          </div>
-        )}
-        {active === 1 && (
-          <div>
-            <h3>Back-End</h3>
-            <ul>
-              {skills.back.map(({ icon, name, color }) => {
-                const Icon = icon || 'img';
-                return (
-                  <Card>
-                    <Icon size={size} color={color} />
-                    {name}
-                  </Card>
-                );
-              })}
-            </ul>
-          </div>
-        )}
-        {active === 2 && (
-          <div>
-            <h3>Tools</h3>
-            <ul>
-              {skills.tools.map(({ icon, name, color }) => {
-                const Icon = icon || 'img';
-                return (
-                  <Card>
-                    <Icon size={size} color={color} />
-                    {name}
-                  </Card>
-                );
-              })}
-            </ul>
-          </div>
-        )}
+        {active === 0 &&
+          skills.front.map((skill) => (
+            <Skill
+              key={skill.name + new Date().getTime().toString()}
+              {...skill}
+              size={size}
+            />
+          ))}
+        {active === 1 &&
+          skills.back.map((skill) => (
+            <Skill
+              key={skill.name + new Date().getTime().toString()}
+              {...skill}
+              size={size}
+            />
+          ))}
+        {active === 2 &&
+          skills.tools.map((skill) => (
+            <Skill
+              key={skill.name + new Date().getTime().toString()}
+              {...skill}
+              size={size}
+            />
+          ))}
       </SkillsContainer>
     </Section>
   );

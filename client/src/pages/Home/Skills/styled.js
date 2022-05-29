@@ -17,6 +17,11 @@ export const Option = styled.li`
     background: #fff;
     font-size: 0.9rem;
     font-weight: 600;
+    transition: all 0.25s;
+
+    :hover {
+      background-color: #fff7;
+    }
 
     ${({ isActive }) =>
       isActive
@@ -28,26 +33,14 @@ export const Option = styled.li`
   }
 `;
 
-export const SkillsContainer = styled.div`
-  padding: 2rem 0;
+export const SkillsContainer = styled.ul`
   margin: 1rem 0 0 0;
   border-radius: 0.5rem;
 
-  ul {
-    list-style: none;
-    margin: 1rem 0 0 0;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(4, 1fr);
-    place-items: center;
-  }
-`;
-
-export const Card = styled.li`
+  list-style: none;
+  margin: 1rem 0 0 0;
   display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
   place-items: center;
-  padding: 2rem 1rem;
-  width: 100%;
-  font-weight: 600;
-  font-size: 0.75rem;
 `;

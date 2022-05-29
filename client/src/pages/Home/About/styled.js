@@ -9,7 +9,7 @@ export const Container = styled.div`
   & > div {
     display: flex;
     flex-flow: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
 `;
 
@@ -18,8 +18,8 @@ export const P1 = styled.p`
   line-height: 2rem;
 
   @media screen and (${breakpoints.mobile}) {
-    font-size: 1.15rem;
-    line-height: 1.75rem;
+    font-size: 0.95rem;
+    line-height: 1.5rem;
   }
 `;
 

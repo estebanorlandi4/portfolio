@@ -10,7 +10,7 @@ function FadeIn({ children, duration, delay, from, ...props }) {
   const ref = useRef(null);
 
   useEffect(() => {
-    if (!ref) return () => {};
+    if (!ref || !ref.current) return () => {};
 
     ref.current.style.transition = `all ${duration || '.25s'} ${delay || '0s'}`;
     ref.current.style.transform = `translate(${from || '0, 0'})`;

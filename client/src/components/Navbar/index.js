@@ -4,26 +4,27 @@ import { AiOutlineCode } from 'react-icons/ai';
 import { MdOutlineContacts } from 'react-icons/md';
 
 import FadeIn from '../Animations';
-import { Brand, Container, Menu, MenuButton, Nav, NavLink } from './styled';
+import { Brand, Container, Menu, Nav, NavLink } from './styled';
 
 import Logo from '../../assets/images/logo.svg';
 
+const size = 20;
 function NavMenu({ mobile, show }) {
   return (
     <Menu show={show} mobile={mobile}>
       <li>
         <NavLink as="a" href="#top">
-          {mobile ? <BiHomeAlt /> : 'home'}
+          {mobile ? <BiHomeAlt size={size} /> : 'home'}
         </NavLink>
       </li>
       <li>
-        <NavLink>{mobile ? <BiBookAlt /> : 'skills'}</NavLink>
+        <NavLink>{mobile ? <BiBookAlt size={size} /> : 'skills'}</NavLink>
       </li>
       <li>
-        <NavLink>{mobile ? <AiOutlineCode /> : 'work'}</NavLink>
+        <NavLink>{mobile ? <AiOutlineCode size={size} /> : 'work'}</NavLink>
       </li>
       <li>
-        <NavLink>{mobile ? <MdOutlineContacts /> : 'work'}</NavLink>
+        <NavLink>{mobile ? <MdOutlineContacts size={size} /> : 'work'}</NavLink>
       </li>
     </Menu>
   );

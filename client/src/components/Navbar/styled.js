@@ -58,7 +58,6 @@ export const Menu = styled.ul`
     }
   }
 
-  transform: translate(-100%, 0);
   transition: all 0.25s;
   ${({ mobile }) =>
     mobile
