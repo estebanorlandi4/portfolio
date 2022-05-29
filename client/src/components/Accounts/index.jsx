@@ -7,6 +7,7 @@ import FadeIn from '../Animations';
 import Contact from '../Contact';
 
 import { AccountsContainer } from './styled';
+import breakpoints from '../../utils/breakpoints';
 
 const Container = styled.div`
   position: fixed;
@@ -14,6 +15,10 @@ const Container = styled.div`
   left: 2rem;
   z-index: 9999;
   transform: translate(0, -50%);
+
+  @media screen and (${breakpoints.mobile}) {
+    display: none;
+  }
 `;
 
 function Accounts() {

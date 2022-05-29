@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import breakpoints from '../../utils/breakpoints';
 
 export const Brand = styled.p`
   display: flex;
@@ -17,6 +18,10 @@ export const Brand = styled.p`
 
   .logo {
     width: 2rem;
+  }
+
+  @media screen and (${breakpoints.mobile}) {
+    margin: 0 auto;
   }
 `;
 
@@ -52,6 +57,36 @@ export const Menu = styled.ul`
       width: 100%;
     }
   }
+
+  transform: translate(-100%, 0);
+  transition: all 0.25s;
+  ${({ mobile }) =>
+    mobile
+      ? css`
+          @media screen and (${breakpoints.mobile}) {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            z-index: 9999;
+            padding: 1rem 0;
+            background-color: #fff;
+            transform: translate(0, 0);
+            box-shadow: 0 -0.15rem 0.25rem #0001;
+
+            li::after {
+              display: none;
+            }
+          }
+        `
+      : css`
+          @media screen and (max-width: 480px) {
+            display: none;
+          }
+        `};
 `;
 
 export const Nav = styled.nav`
@@ -67,4 +102,11 @@ export const NavLink = styled.a`
   height: 100%;
   width: 100%;
   text-transform: capitalize;
+`;
+
+export const MenuButton = styled.button`
+  display: none;
+  @media screen and (${breakpoints.mobile}) {
+    display: block;
+  }
 `;
