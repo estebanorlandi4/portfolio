@@ -8,7 +8,8 @@ export const Container = styled.div`
   margin: 0 auto;
 
   @media screen and (${breakpoints.mobile}) {
-    max-width: 20rem;
+    width: 100%;
+    min-width: 20rem;
     margin: 0 auto;
     padding: 0 5vw;
   }

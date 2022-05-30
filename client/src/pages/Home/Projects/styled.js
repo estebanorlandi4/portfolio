@@ -10,7 +10,10 @@ export const Container = styled.div`
 `;
 
 export const Project = styled.article`
-  display: grid;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
   height: 100%;
   background: #f0f0f0;
   padding: 1rem;
@@ -20,7 +23,8 @@ export const Project = styled.article`
   transition: all 0.25s;
 
   :hover {
-    box-shadow: 0 0.15rem 0.3rem #0008;
+    transform: scale(105%);
+    box-shadow: 0 1rem 1rem -1rem #000f;
   }
 
   h3 {
@@ -67,4 +71,34 @@ export const URL = styled.a`
   :hover {
     color: #fff;
   }
+`;
+
+export const Techs = styled.ul`
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.5rem 0.5rem;
+  list-style: none;
+`;
+
+export const Tech = styled.li`
+  position: relative;
+  padding: 0.5rem 0.5rem;
+  border-radius: 3px;
+  display: grid;
+  place-items: center;
+
+  .toast {
+    display: none;
+  }
+  :hover .toast {
+    display: block;
+    top: -1.5rem;
+    opacity: 1;
+  }
+
+  ${({ bg }) =>
+    bg &&
+    css`
+      background-color: ${bg};
+    `}
 `;

@@ -1,4 +1,9 @@
 import styled, { css } from 'styled-components';
+import breakpoints from '../../../utils/breakpoints';
+
+export const Container = styled.div`
+  min-height: 30vh;
+`;
 
 export const Options = styled.ul`
   list-style: none;
@@ -34,13 +39,9 @@ export const Option = styled.li`
 `;
 
 export const SkillsContainer = styled.ul`
-  margin: 1rem 0 0 0;
-
   list-style: none;
   margin: 1.5rem 0 0 0;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(6, 1fr);
-
-  min-height: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
 `;

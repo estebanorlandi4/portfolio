@@ -27,7 +27,24 @@ export const Header = styled.div`
     margin: 0 0 0.5rem 0;
   }
 `;
-export const Name = styled.h3``;
+export const Name = styled.h3`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .dates {
+    width: max-content;
+    color: #aaa;
+    font-size: 0.8rem;
+    display: flex;
+    gap: 0.5rem;
+
+    time {
+      width: max-content;
+    }
+  }
+`;
 export const Description = styled.p`
   line-height: 2rem;
   font-size: 1.1rem;

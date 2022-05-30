@@ -8,7 +8,13 @@ function Experience() {
 
       <Article>
         <Header>
-          <Name>Full-Stack Teaching Assistant</Name>
+          <Name>
+            Full-Stack Teaching Assistant
+            <div className="dates">
+              <time dateTime="2021-08">Septiembre 2021</time>-
+              <time dateTime="2021-11">Noviembre 2021</time>
+            </div>
+          </Name>
           <Place>SoyHenry</Place>
         </Header>
         <Description>

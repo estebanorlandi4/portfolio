@@ -3,7 +3,7 @@ import Skill from '../../../components/Skill';
 
 import { Section, SectionHeader } from '../../../components/Styled';
 import { skills } from '../../../utils/skills';
-import { Option, Options, SkillsContainer } from './styled';
+import { Container, Option, Options, SkillsContainer } from './styled';
 
 const size = 44;
 
@@ -31,32 +31,34 @@ function Skills() {
         </Option>
       </Options>
 
-      <SkillsContainer>
-        {active === 0 &&
-          skills.front.map((skill) => (
-            <Skill
-              key={skill.name + new Date().getTime().toString()}
-              {...skill}
-              size={size}
-            />
-          ))}
-        {active === 1 &&
-          skills.back.map((skill) => (
-            <Skill
-              key={skill.name + new Date().getTime().toString()}
-              {...skill}
-              size={size}
-            />
-          ))}
-        {active === 2 &&
-          skills.tools.map((skill) => (
-            <Skill
-              key={skill.name + new Date().getTime().toString()}
-              {...skill}
-              size={size}
-            />
-          ))}
-      </SkillsContainer>
+      <Container>
+        <SkillsContainer>
+          {active === 0 &&
+            skills.front.map((skill) => (
+              <Skill
+                key={skill.name + new Date().getTime().toString()}
+                {...skill}
+                size={size}
+              />
+            ))}
+          {active === 1 &&
+            skills.back.map((skill) => (
+              <Skill
+                key={skill.name + new Date().getTime().toString()}
+                {...skill}
+                size={size}
+              />
+            ))}
+          {active === 2 &&
+            skills.tools.map((skill) => (
+              <Skill
+                key={skill.name + new Date().getTime().toString()}
+                {...skill}
+                size={size}
+              />
+            ))}
+        </SkillsContainer>
+      </Container>
     </Section>
   );
 }
