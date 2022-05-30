@@ -18,13 +18,19 @@ function NavMenu({ mobile, show }) {
         </NavLink>
       </li>
       <li>
-        <NavLink>{mobile ? <BiBookAlt size={size} /> : 'skills'}</NavLink>
+        <NavLink as="a" href="#skills">
+          {mobile ? <BiBookAlt size={size} /> : 'skills'}
+        </NavLink>
       </li>
       <li>
-        <NavLink>{mobile ? <AiOutlineCode size={size} /> : 'work'}</NavLink>
+        <NavLink as="a" href="#projects">
+          {mobile ? <AiOutlineCode size={size} /> : 'work'}
+        </NavLink>
       </li>
       <li>
-        <NavLink>{mobile ? <MdOutlineContacts size={size} /> : 'work'}</NavLink>
+        <NavLink as="a" href="#experience">
+          {mobile ? <MdOutlineContacts size={size} /> : 'work'}
+        </NavLink>
       </li>
     </Menu>
   );

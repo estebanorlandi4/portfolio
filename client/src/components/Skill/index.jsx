@@ -1,27 +1,49 @@
 import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import FadeIn from '../Animations';
+import Toast from '../Toast';
 
 export const Card = styled.li`
-  position: relative;
   width: 100%;
   aspect-ratio: 1/1;
 
   transition: all 0.25s;
+
+  :hover .toast {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
 
   .card-icon {
     padding: 1.5rem;
     display: grid;
     height: 100%;
     place-items: center;
+    border-radius: 5px;
   }
 
   ${({ bg }) =>
     bg &&
     css`
       .card-icon {
-        background: ${bg};
+        background: linear-gradient(
+            -45deg,
+            transparent 30%,
+            #fff3 50%,
+            transparent 70%
+          ),
+          ${bg};
+        background-size: 300%;
         color: #fff;
+        box-shadow: 0 0.5rem 0.5rem -0.3rem ${bg}55;
+        transform: translate(0, 0) scale(100%);
+        transition: all 0.25s;
+      }
+
+      :hover .card-icon {
+        animation: bg 2s linear infinite;
+        transform: translate(0, -5px) scale(115%);
+        box-shadow: 0 0.75rem 0.5rem -0.3rem ${bg}88;
       }
     `}
 
@@ -52,10 +74,10 @@ function Skill({ icon, name, color, size }) {
   return (
     <FadeIn duration=".5s" from={animate}>
       <Card bg={color}>
+        <Toast className="toast">{name}</Toast>
         <div className="card-icon">
           <Icon size={size} />
         </div>
-        <h3>{name}</h3>
       </Card>
     </FadeIn>
   );

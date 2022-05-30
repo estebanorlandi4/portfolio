@@ -35,12 +35,12 @@ export const Option = styled.li`
 
 export const SkillsContainer = styled.ul`
   margin: 1rem 0 0 0;
-  border-radius: 0.5rem;
 
   list-style: none;
-  margin: 1rem 0 0 0;
+  margin: 1.5rem 0 0 0;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
-  place-items: center;
+  grid-template-columns: repeat(6, 1fr);
+
+  min-height: 100%;
 `;

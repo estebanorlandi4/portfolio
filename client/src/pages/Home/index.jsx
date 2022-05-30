@@ -4,16 +4,24 @@ import Skills from './Skills';
 import Projects from './Projects';
 import Experience from './Experience';
 
-import Decoration from '../../assets/images/decoration.svg';
-
 function Home() {
   return (
     <main>
-      <Intro />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
+      <div id="intro">
+        <Intro />
+      </div>
+      <div id="about">
+        <About />
+      </div>
+      <div id="skills">
+        <Skills />
+      </div>
+      <div id="projects">
+        <Projects />
+      </div>
+      <div id="experience">
+        <Experience />
+      </div>
     </main>
   );
 }
