@@ -48,7 +48,12 @@ function Projects() {
       <SectionHeader>Proyectos</SectionHeader>
       <Container>
         {projects.map(({ name, github, url, styles }) => (
-          <Project bg={styles.bg} bgPos={styles.bgPos} area={styles.area}>
+          <Project
+            key={name}
+            bg={styles.bg}
+            bgPos={styles.bgPos}
+            area={styles.area}
+          >
             <div>
               <h3>{name}</h3>
 

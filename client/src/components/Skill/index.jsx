@@ -1,62 +1,9 @@
 import { useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
+
 import FadeIn from '../Animations';
 import Toast from '../Toast';
 
-export const Card = styled.li`
-  width: 100%;
-  aspect-ratio: 1/1;
-
-  transition: all 0.25s;
-
-  :hover .toast {
-    opacity: 1;
-    transform: translate(-50%, -100%);
-  }
-
-  .card-icon {
-    padding: 1.5rem;
-    display: grid;
-    height: 100%;
-    place-items: center;
-    border-radius: 5px;
-  }
-
-  ${({ bg }) =>
-    bg &&
-    css`
-      .card-icon {
-        background: linear-gradient(
-            -45deg,
-            transparent 30%,
-            #fff3 50%,
-            transparent 70%
-          ),
-          ${bg};
-        background-size: 300%;
-        color: #fff;
-        box-shadow: 0 0.5rem 0.5rem -0.3rem ${bg}55;
-        transform: translate(0, 0) scale(100%);
-        transition: all 0.25s;
-      }
-
-      :hover .card-icon {
-        animation: bg 2s linear infinite;
-        transform: translate(0, -5px) scale(115%);
-        box-shadow: 0 0.75rem 0.5rem -0.3rem ${bg}88;
-      }
-    `}
-
-  h3 {
-    font-weight: 600;
-    font-size: 0.8rem;
-    text-align: center;
-    margin: 0.25rem 0 0 0;
-    color: #000;
-
-    transition: all 0.25s;
-  }
-`;
+import { Card, IconContainer } from './styled';
 
 function Skill({ icon, name, color, size }) {
   const [animate, setAnimate] = useState(null);
@@ -75,9 +22,9 @@ function Skill({ icon, name, color, size }) {
     <FadeIn duration=".5s" from={animate}>
       <Card bg={color}>
         <Toast className="toast">{name}</Toast>
-        <div className="card-icon">
+        <IconContainer className="icon-container">
           <Icon size={size} />
-        </div>
+        </IconContainer>
       </Card>
     </FadeIn>
   );

@@ -49,7 +49,10 @@ function Intro() {
 
           <FadeIn duration="1s" delay="1s" from="0, -10rem">
             <p>
-              &lt;{tags.map((label, i) => i === index && <Tag label={label} />)}
+              &lt;
+              {tags.map(
+                (label, i) => i === index && <Tag key={label} label={label} />,
+              )}
               &gt;
             </p>
           </FadeIn>
