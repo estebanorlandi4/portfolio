@@ -28,6 +28,20 @@ export const AccountsContainer = styled.div`
     width: var(--size);
     height: var(--size);
   }
+
+  .contact {
+    position: relative;
+
+    .toast {
+      top: 50%;
+      transform: translate(1rem, -50%);
+    }
+
+    :hover .toast {
+      opacity: 1;
+      left: 100%;
+    }
+  }
 `;
 
 export const Account = styled.a``;

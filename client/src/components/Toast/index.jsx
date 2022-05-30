@@ -1,4 +1,27 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const directions = {
+  top: css`
+    top: -0.25rem;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(45deg);
+  `,
+  bottom: css`
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -0.3rem) rotate(45deg);
+  `,
+  left: css`
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%) rotate(45deg);
+  `,
+  right: css`
+    top: 50%;
+    left: 100%;
+    transform: translate(-0.3rem, -50%) rotate(45deg);
+  `,
+};
 
 const ToastContainer = styled.span`
   position: absolute;
@@ -18,10 +41,27 @@ const ToastContainer = styled.span`
   color: #fff;
 
   transition: all 0.25s;
+
+  ::before {
+    content: '';
+    position: absolute;
+    width: 0.6rem;
+    height: 0.6rem;
+
+    background-color: #000;
+    z-index: -1;
+    border-radius: 3px;
+
+    ${({ direction }) => (direction ? directions[direction] : '')}
+  }
 `;
 
-function Toast({ children, ...props }) {
-  return <ToastContainer {...props}>{children}</ToastContainer>;
+function Toast({ children, direction, ...props }) {
+  return (
+    <ToastContainer direction={direction} {...props}>
+      {children}
+    </ToastContainer>
+  );
 }
 
 export default Toast;

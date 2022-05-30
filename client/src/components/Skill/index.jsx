@@ -21,7 +21,9 @@ function Skill({ icon, name, color, size }) {
   return (
     <FadeIn duration=".5s" from={animate}>
       <Card bg={color}>
-        <Toast className="toast">{name}</Toast>
+        <Toast className="toast" direction="bottom">
+          {name}
+        </Toast>
         <IconContainer className="icon-container">
           <Icon size={size} />
         </IconContainer>
