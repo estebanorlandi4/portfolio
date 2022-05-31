@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 import Intro from './Intro';
 import About from './About';
 import Skills from './Skills';
@@ -10,15 +12,34 @@ function Home() {
       <div id="intro">
         <Intro />
       </div>
-      <div id="about">
+
+      <motion.div
+        initial={{ opacity: 0, x: 1000 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: false }}
+        transition={{
+          delay: 0,
+          x: { type: 'spring', stiffness: 100 },
+          default: { duration: 1 },
+        }}
+        id="about"
+      >
         <About />
-      </div>
-      <div id="skills">
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: false }}
+        id="skills"
+      >
         <Skills />
-      </div>
+      </motion.div>
+
       <div id="projects">
         <Projects />
       </div>
+
       <div id="experience">
         <Experience />
       </div>

@@ -28,25 +28,29 @@ function Footer() {
 
   return (
     <FooterContainer>
+      <div className="divider" />
+
       <Container>
         <section>
           <SectionHeader>Contacto</SectionHeader>
 
           <Grid>
             <Form onSubmit={onSubmit}>
-              <Input
-                onChange={onChange}
-                name="name"
-                placeholder="Your Name"
-                type="text"
-              />
+              <div className="inline">
+                <Input
+                  onChange={onChange}
+                  name="name"
+                  placeholder="Your Name"
+                  type="text"
+                />
 
-              <Input
-                onChange={onChange}
-                name="email"
-                placeholder="Your Email"
-                type="text"
-              />
+                <Input
+                  onChange={onChange}
+                  name="email"
+                  placeholder="Your Email"
+                  type="text"
+                />
+              </div>
 
               <Input
                 onChange={onChange}
@@ -59,23 +63,21 @@ function Footer() {
             </Form>
 
             <Contacts>
-              <ul>
-                <li>
-                  <Contact url={ContactMethods.linkedin.url}>
-                    <Icons.Linkedin size={24} />
-                  </Contact>
-                </li>
-                <li>
-                  <Contact url={ContactMethods.github.url}>
-                    <Icons.Github size={24} />
-                  </Contact>
-                </li>
-                <li>
-                  <Contact url={ContactMethods.gmail.url}>
-                    <Icons.Gmail size={24} />
-                  </Contact>
-                </li>
-              </ul>
+              <li>
+                <Contact url={ContactMethods.linkedin.url}>
+                  <Icons.Linkedin size={24} />
+                </Contact>
+              </li>
+              <li>
+                <Contact url={ContactMethods.github.url}>
+                  <Icons.Github size={24} />
+                </Contact>
+              </li>
+              <li>
+                <Contact url={ContactMethods.gmail.url}>
+                  <Icons.Gmail size={24} />
+                </Contact>
+              </li>
             </Contacts>
           </Grid>
         </section>

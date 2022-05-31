@@ -8,6 +8,7 @@ import { Container } from './components/Styled';
 import Home from './pages/Home';
 
 import './App.css';
+import Test from './pages/Test';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Container>
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/test" element={<Test />} />
         </Routes>
       </Container>
 

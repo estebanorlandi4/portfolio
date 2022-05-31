@@ -18,6 +18,10 @@ export const Label = styled.label`
     color: #888;
   }
 
+  textarea {
+    resize: vertical;
+  }
+
   span {
     color: #888;
     font-size: 0.9rem;
