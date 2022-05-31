@@ -3,32 +3,56 @@ import styled, { css } from 'styled-components';
 export const Container = styled.div`
   margin: 2rem 0 0 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 1rem;
-  aspect-ratio: 16 / 9;
 `;
 
 export const Project = styled.article`
   position: relative;
   display: flex;
-  flex-flow: column;
-  justify-content: space-between;
+  flex-flow: row;
+  align-items: center;
+  gap: 1.5rem;
   height: 100%;
-  background: #f0f0f0;
-  padding: 1rem;
-  color: #fff;
-  border-radius: 5px;
+  color: #000;
   box-shadow: 0 0.15rem 0.3rem #0000;
   transition: all 0.25s;
 
-  :hover {
-    transform: scale(105%);
-    box-shadow: 0 1rem 1rem -1rem #000f;
+  .info {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+
+    width: 100%;
+  }
+
+  .top {
+    display: flex;
+    flex-flow: column;
+    gap: 0.5rem;
+    margin: 1rem 0 0 0;
+  }
+
+  :nth-child(2n) {
+    flex-flow: row-reverse;
+    .info {
+      align-items: flex-end;
+      .top {
+        align-items: flex-end;
+      }
+    }
+  }
+
+  img {
+    width: 10rem;
+    height: auto;
+    transition: all 0.25s;
+    z-index: 10;
+    border-radius: 5px;
   }
 
   h3 {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     text-transform: uppercase;
   }
 
@@ -46,6 +70,7 @@ export const Project = styled.article`
     css`
       grid-area: ${area};
     `}
+
   ${({ bgPos }) =>
     bgPos &&
     css`
@@ -57,19 +82,18 @@ export const URLs = styled.div`
   display: flex;
   flex-flow: row wrap;
   gap: 1rem;
-  margin: 0.5rem 0 0 0;
 `;
 
 export const URL = styled.a`
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  font-size: 0.85rem;
-  text-decoration: underline;
-  color: #ddd;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #2b7fbc;
 
   :hover {
-    color: #fff;
+    color: #5e5eae;
   }
 `;
 
@@ -100,5 +124,6 @@ export const Tech = styled.li`
     bg &&
     css`
       background-color: ${bg};
+      color: #fff;
     `}
 `;

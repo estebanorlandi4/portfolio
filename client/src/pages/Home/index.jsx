@@ -4,8 +4,10 @@ import Skills from './Skills';
 import Projects from './Projects';
 import Experience from './Experience';
 
-import { variantsSection } from '../../utils/motionVariants';
+import { motionSections, variantsSection } from '../../utils/motionVariants';
 import { Section } from '../../components/Styled';
+
+const { variants, viewport } = motionSections;
 
 function Home() {
   return (
@@ -17,8 +19,8 @@ function Home() {
       <Section
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false }}
-        variants={variantsSection}
+        viewport={viewport}
+        variants={variants}
         id="about"
       >
         <About />
@@ -27,8 +29,8 @@ function Home() {
       <Section
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false }}
-        variants={variantsSection}
+        viewport={viewport}
+        variants={variants}
         id="skills"
       >
         <Skills />
@@ -37,8 +39,8 @@ function Home() {
       <Section
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false }}
-        variants={variantsSection}
+        viewport={viewport}
+        variants={variants}
         id="projects"
       >
         <Projects />
@@ -47,8 +49,8 @@ function Home() {
       <Section
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false }}
-        variants={variantsSection}
+        viewport={viewport}
+        variants={variants}
         id="experience"
       >
         <Experience />

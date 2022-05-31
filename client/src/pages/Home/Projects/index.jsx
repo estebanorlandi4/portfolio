@@ -1,4 +1,4 @@
-import { BiGlobe, BiHeart } from 'react-icons/bi';
+import { BiGlobe } from 'react-icons/bi';
 import { BsGithub } from 'react-icons/bs';
 
 import { Section, SectionHeader } from '../../../components/Styled';
@@ -13,46 +13,45 @@ function Projects() {
       <SectionHeader>Proyectos</SectionHeader>
       <Container>
         {projects.map(({ name, github, techs, url, styles }) => (
-          <Project
-            key={name}
-            bg={styles.bg}
-            bgPos={styles.bgPos}
-            area={styles.area}
-          >
-            {techs && techs.length && (
-              <Techs>
-                {techs.map((tech) => {
-                  const Icon = tech.icon || null;
-                  return (
-                    <Tech
-                      key={tech.label + new Date().getTime().toString()}
-                      bg={tech.bg}
-                    >
-                      <Toast direction="bottom" className="toast">
-                        {tech.label}
-                      </Toast>
-                      {Icon && <Icon />}
-                    </Tech>
-                  );
-                })}
-              </Techs>
-            )}
-            <div>
-              <h3>{name}</h3>
+          <Project key={name} bgPos={styles.bgPos}>
+            <img src={styles.bg} alt={name} />
 
-              <URLs>
-                {url && (
-                  <URL href={url} target="_blank" rel="noreferrer">
-                    <BiGlobe size={20} />
-                  </URL>
-                )}
+            <div className="info">
+              {techs && techs.length && (
+                <Techs>
+                  {techs.map((tech) => {
+                    const Icon = tech.icon || null;
+                    return (
+                      <Tech
+                        key={tech.label + new Date().getTime().toString()}
+                        bg={tech.bg}
+                      >
+                        <Toast direction="bottom" className="toast">
+                          {tech.label}
+                        </Toast>
+                        {Icon && <Icon />}
+                      </Tech>
+                    );
+                  })}
+                </Techs>
+              )}
+              <div className="top">
+                <h3>{name}</h3>
 
-                {github && (
-                  <URL href={github} target="_blank" rel="noreferrer">
-                    <BsGithub size={20} />
-                  </URL>
-                )}
-              </URLs>
+                <URLs>
+                  {url && (
+                    <URL href={url} target="_blank" rel="noreferrer">
+                      <BiGlobe size={20} /> Web
+                    </URL>
+                  )}
+
+                  {github && (
+                    <URL href={github} target="_blank" rel="noreferrer">
+                      <BsGithub size={20} /> GitHub
+                    </URL>
+                  )}
+                </URLs>
+              </div>
             </div>
           </Project>
         ))}

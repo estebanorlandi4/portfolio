@@ -31,7 +31,7 @@ function Skills() {
   const [active, setActive] = useState(tabs[0]);
 
   return (
-    <div>
+    <Container>
       <SectionHeader>Habilidades</SectionHeader>
       <Options>
         {tabs.map((tab) => (
@@ -46,24 +46,22 @@ function Skills() {
         ))}
       </Options>
 
-      <Container>
-        <AnimatePresence className="SkillsContainer" layout exitBeforeEnter>
-          <div className="SkillsContainer">
-            {active.component.map((skill) => (
-              <motion.div
-                key={skill.name + new Date().getTime().toString()}
-                initial={{ y: 50, x: getRandom(), opacity: 0 }}
-                animate={{ y: 0, x: 0, opacity: 1 }}
-                exit={{ y: 50, x: getRandom(), opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Skill {...skill} size={size} />
-              </motion.div>
-            ))}
-          </div>
-        </AnimatePresence>
-      </Container>
-    </div>
+      <AnimatePresence className="SkillsContainer" layout exitBeforeEnter>
+        <div className="SkillsContainer">
+          {active.component.map((skill) => (
+            <motion.div
+              key={skill.name + new Date().getTime().toString()}
+              initial={{ y: 50, x: getRandom(), opacity: 0 }}
+              animate={{ y: 0, x: 0, opacity: 1 }}
+              exit={{ y: 50, x: getRandom(), opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Skill {...skill} size={size} />
+            </motion.div>
+          ))}
+        </div>
+      </AnimatePresence>
+    </Container>
   );
 }
 
