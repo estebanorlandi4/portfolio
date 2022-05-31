@@ -2,7 +2,24 @@ import styled, { css } from 'styled-components';
 import breakpoints from '../../../utils/breakpoints';
 
 export const Container = styled.div`
-  min-height: 30vh;
+  .SkillsContainer {
+    max-width: 100%;
+    overflow: hidden;
+    overflow-x: scroll;
+    list-style: none;
+    gap: 1rem;
+    display: flex;
+    padding: 2rem 2rem;
+
+    min-height: calc(7rem + 4rem);
+
+    scrollbar-width: none;
+
+    /*
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    */
+  }
 `;
 
 export const Options = styled.ul`
@@ -17,6 +34,7 @@ export const Options = styled.ul`
 export const Option = styled.li`
   width: 100%;
   button {
+    position: relative;
     width: 100%;
     padding: 0.5rem 0.75rem;
     background: #fff;
@@ -36,12 +54,13 @@ export const Option = styled.li`
           `
         : css``};
   }
-`;
 
-export const SkillsContainer = styled.ul`
-  list-style: none;
-  margin: 1.5rem 0 0 0;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  .underline {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--primary);
+  }
 `;

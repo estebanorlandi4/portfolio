@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import breakpoints from '../../utils/breakpoints';
 
 export const Container = styled.div`
@@ -19,7 +20,7 @@ export const SectionHeader = styled.h2`
   font-size: 2rem;
 `;
 
-export const Section = styled.section`
+export const Section = styled(motion.section)`
   padding: 0 0;
   margin: 20vh auto;
 `;

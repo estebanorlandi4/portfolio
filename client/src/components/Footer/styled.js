@@ -60,17 +60,18 @@ export const Form = styled.form`
 `;
 
 export const FooterContainer = styled.footer`
+  position: relative;
   color: #fff;
   background-color: #000;
   padding: 4rem 0;
 
-  position: relative;
   .divider {
+    --size: 1.5rem;
     position: absolute;
-    top: -3rem;
+    top: calc(-1 * var(--size));
     left: 0;
     width: 100%;
-    height: 3rem;
+    height: var(--size);
     background-color: var(--primary);
     clip-path: polygon(50% 75%, 100% 0, 100% 100%, 0 100%, 0 0);
     animation: clip-anim 2s infinite linear;

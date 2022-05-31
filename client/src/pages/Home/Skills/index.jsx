@@ -1,65 +1,69 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Skill from '../../../components/Skill';
 
-import { Section, SectionHeader } from '../../../components/Styled';
+import { SectionHeader } from '../../../components/Styled';
 import { skills } from '../../../utils/skills';
-import { Container, Option, Options, SkillsContainer } from './styled';
+import { Container, Option, Options } from './styled';
 
 const size = 44;
 
+const tabs = [
+  {
+    label: 'front-end',
+    component: skills.front,
+  },
+  {
+    label: 'back-end',
+    component: skills.back,
+  },
+  {
+    label: 'tools',
+    component: skills.tools,
+  },
+];
+
+const getRandom = () => {
+  const r = Math.floor(Math.random() * (100 - 50) + 50);
+  return Math.round(Math.random()) ? r * -1 : r;
+};
 function Skills() {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(tabs[0]);
 
   return (
-    <Section>
+    <div>
       <SectionHeader>Habilidades</SectionHeader>
       <Options>
-        <Option isActive={active === 0}>
-          <button onClick={() => setActive(0)} type="button">
-            Front-End
-          </button>
-        </Option>
-        <Option isActive={active === 1}>
-          <button onClick={() => setActive(1)} type="button">
-            Back-End
-          </button>
-        </Option>
-        <Option isActive={active === 2}>
-          <button onClick={() => setActive(2)} type="button">
-            Tools
-          </button>
-        </Option>
+        {tabs.map((tab) => (
+          <Option isActive={active.label === tab.label}>
+            <button onClick={() => setActive(tab)} type="button">
+              {tab.label}
+              {active.label === tab.label && (
+                <motion.div className="underline" layoutId="underline" />
+              )}
+            </button>
+          </Option>
+        ))}
       </Options>
 
       <Container>
-        <SkillsContainer>
-          {active === 0 &&
-            skills.front.map((skill) => (
-              <Skill
+        <AnimatePresence className="SkillsContainer" layout exitBeforeEnter>
+          <div className="SkillsContainer">
+            {active.component.map((skill) => (
+              <motion.div
                 key={skill.name + new Date().getTime().toString()}
-                {...skill}
-                size={size}
-              />
+                initial={{ y: 50, x: getRandom(), opacity: 0 }}
+                animate={{ y: 0, x: 0, opacity: 1 }}
+                exit={{ y: 50, x: getRandom(), opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Skill {...skill} size={size} />
+              </motion.div>
             ))}
-          {active === 1 &&
-            skills.back.map((skill) => (
-              <Skill
-                key={skill.name + new Date().getTime().toString()}
-                {...skill}
-                size={size}
-              />
-            ))}
-          {active === 2 &&
-            skills.tools.map((skill) => (
-              <Skill
-                key={skill.name + new Date().getTime().toString()}
-                {...skill}
-                size={size}
-              />
-            ))}
-        </SkillsContainer>
+          </div>
+        </AnimatePresence>
       </Container>
-    </Section>
+    </div>
   );
 }
 

@@ -3,7 +3,7 @@ import { Color, Container, P1, P2 } from './styled';
 
 function About() {
   return (
-    <Section>
+    <div>
       <Container>
         <SectionHeader>Sobre mí</SectionHeader>
         <div>
@@ -20,7 +20,7 @@ function About() {
           </P2>
         </div>
       </Container>
-    </Section>
+    </div>
   );
 }
 

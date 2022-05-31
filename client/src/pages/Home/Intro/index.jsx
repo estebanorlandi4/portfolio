@@ -1,31 +1,15 @@
-import { motion } from 'framer-motion';
-
 import CV from '../../../assets/Esteban Orlandi - CV - Full Stack.pdf';
-import FadeIn from '../../../components/Animations';
 import { useArrayInterval, useTagAnimation } from '../../../hooks';
-import { Container, Header, Name, Resume, STag } from './styled';
+import { variants } from '../../../utils/motionVariants';
+import { Container, Header, Name, Resume, Tag } from './styled';
 
 const tags = ['Web Developer', 'Full Stack Developer', 'Front End', 'Back End'];
 const speed = 100;
 
-const variants = {
-  hidden: {
-    opacity: 0,
-    y: -50,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-    },
-  },
-};
-
 function Intro() {
   const { current } = useArrayInterval({
     tags,
-    speed: (tag) => tag.length * speed + 1 * 1000,
+    speed: (tag) => tag.length * speed + 2 * 1000,
   });
   const label = useTagAnimation({ label: current, speed });
 
@@ -33,22 +17,36 @@ function Intro() {
     <Container style={{ height: `100vh` }}>
       <div className="info">
         <Header>
-          <motion.div initial="hidden" animate="visible" variants={variants}>
-            <Name>esteban Orlandi</Name>
-          </motion.div>
+          <Name
+            initial="hidden"
+            animate="visible"
+            custom={{ y: 500 }}
+            variants={variants}
+          >
+            esteban Orlandi
+          </Name>
 
-          <motion.div initial="hidden" animate="visible" variants={variants}>
-            <p>
-              &lt; <STag>{label}</STag> /&gt;
-            </p>
-          </motion.div>
+          <Tag
+            initial="hidden"
+            animate="visible"
+            custom={{ delay: 0.25, y: 500 }}
+            variants={variants}
+          >
+            &lt; <span> {label}</span>/&gt;
+          </Tag>
         </Header>
 
-        <FadeIn duration="1s" delay="2s" from="0, 10rem">
-          <Resume as="a" href={CV} target="_blank" rel="noreferrer">
-            Resume
-          </Resume>
-        </FadeIn>
+        <Resume
+          initial="hidden"
+          animate="visible"
+          custom={{ delay: 0.5, y: 500 }}
+          variants={variants}
+          href={CV}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Resume
+        </Resume>
       </div>
     </Container>
   );

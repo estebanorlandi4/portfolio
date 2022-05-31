@@ -1,10 +1,11 @@
-import { motion } from 'framer-motion';
-
 import Intro from './Intro';
 import About from './About';
 import Skills from './Skills';
 import Projects from './Projects';
 import Experience from './Experience';
+
+import { variantsSection } from '../../utils/motionVariants';
+import { Section } from '../../components/Styled';
 
 function Home() {
   return (
@@ -13,36 +14,45 @@ function Home() {
         <Intro />
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, x: 1000 }}
-        whileInView={{ opacity: 1, x: 0 }}
+      <Section
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: false }}
-        transition={{
-          delay: 0,
-          x: { type: 'spring', stiffness: 100 },
-          default: { duration: 1 },
-        }}
+        variants={variantsSection}
         id="about"
       >
         <About />
-      </motion.div>
+      </Section>
 
-      <motion.div
-        initial={{ opacity: 0, x: 100 }}
-        whileInView={{ opacity: 1, x: 0 }}
+      <Section
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: false }}
+        variants={variantsSection}
         id="skills"
       >
         <Skills />
-      </motion.div>
+      </Section>
 
-      <div id="projects">
+      <Section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false }}
+        variants={variantsSection}
+        id="projects"
+      >
         <Projects />
-      </div>
+      </Section>
 
-      <div id="experience">
+      <Section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false }}
+        variants={variantsSection}
+        id="experience"
+      >
         <Experience />
-      </div>
+      </Section>
     </main>
   );
 }

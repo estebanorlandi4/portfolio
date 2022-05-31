@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import FadeIn from '../Animations';
 import Toast from '../Toast';
 
 import { Card, IconContainer } from './styled';
@@ -19,16 +18,14 @@ function Skill({ icon, name, color, size }) {
 
   if (!animate) return null;
   return (
-    <FadeIn duration=".5s" from={animate}>
-      <Card bg={color}>
-        <Toast className="toast" direction="bottom">
-          {name}
-        </Toast>
-        <IconContainer className="icon-container">
-          <Icon size={size} />
-        </IconContainer>
-      </Card>
-    </FadeIn>
+    <Card bg={color}>
+      <Toast className="toast" direction="bottom">
+        {name}
+      </Toast>
+      <IconContainer className="icon-container">
+        <Icon size={size} />
+      </IconContainer>
+    </Card>
   );
 }
 

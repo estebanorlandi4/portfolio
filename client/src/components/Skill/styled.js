@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
 
 export const Card = styled.div`
-  width: 100%;
+  position: relative;
+  width: 7rem;
   aspect-ratio: 1/1;
   transition: all 0.25s;
 

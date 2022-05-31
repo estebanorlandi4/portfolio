@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const Container = styled.div`
   position: relative;
@@ -12,14 +13,6 @@ export const Container = styled.div`
     gap: 10rem;
   }
   p {
-    margin: 2rem 0 0 0;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    min-height: 1.25rem;
-    height: 1.25rem;
-    color: var(--primary);
-    font-size: clamp(0.75rem, 0.5rem + 2vw, 1.5rem);
   }
 `;
 
@@ -29,7 +22,7 @@ export const Header = styled.div`
   align-items: center;
 `;
 
-export const Name = styled.h1`
+export const Name = styled(motion.h1)`
   text-transform: capitalize;
   font-size: clamp(1.5rem, 1.5rem + 2vw, 4rem);
   letter-spacing: 3px;
@@ -58,26 +51,33 @@ export const Name = styled.h1`
   }
 `;
 
-export const STag = styled.span`
-  position: relative;
+export const Tag = styled(motion.p)`
+  margin: 2rem 0 0 0;
+  color: var(--primary);
+  font-size: 1.25rem;
+
   color: #764abc;
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.5rem;
   letter-spacing: 1.5px;
   width: max-content;
-  padding: 0 0.17rem;
 
-  ::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translate(0, -50%);
-    width: 2px;
-    height: 75%;
-    background: #764abc;
+  span {
+    padding: 0 0.17rem;
+    position: relative;
+    ::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(0, -50%);
+      width: 2px;
+      height: 75%;
+      background: #764abc;
 
-    animation: type 0.75s linear infinite;
+      animation: type 0.75s linear infinite;
+    }
   }
 
   @keyframes type {
@@ -96,7 +96,7 @@ export const STag = styled.span`
   }
 `;
 
-export const Resume = styled.button`
+export const Resume = styled(motion.a)`
   border: none;
   padding: 0.75rem 1rem;
   border-radius: 5px;
@@ -105,10 +105,7 @@ export const Resume = styled.button`
   background-color: #000;
   color: #fff;
 
-  transition: all 0.25s;
-
   :hover {
-    transform: translate(0, -5px);
     background-color: var(--primary);
   }
 `;
