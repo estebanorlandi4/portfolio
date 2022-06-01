@@ -13,6 +13,9 @@ export const Container = styled.div`
     min-height: calc(7rem + 4rem);
 
     scrollbar-width: none;
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
 `;
 

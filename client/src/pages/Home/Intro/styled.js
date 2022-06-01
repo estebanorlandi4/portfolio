@@ -29,7 +29,9 @@ export const Name = styled(motion.h1)`
   font-weight: 800;
 
   color: transparent;
+
   background-clip: text;
+  -webkit-background-clip: text;
 
   background-image: var(--bg-linear);
 

@@ -113,10 +113,11 @@ export const Tech = styled.li`
 
   .toast {
     display: none;
+    top: -2rem;
   }
+
   :hover .toast {
     display: block;
-    top: -1.5rem;
     opacity: 1;
   }
 
