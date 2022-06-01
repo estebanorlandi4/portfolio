@@ -13,7 +13,7 @@ export const theme = {
   },
   dark: {
     isDark: true,
-    bg: '#1e1e1e',
+    bg: '#1e2025',
     fg: (opacity) => `rgba(255, 255, 255, ${opacity})`,
     primary,
     accent,

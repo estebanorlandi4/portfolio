@@ -5,7 +5,7 @@ export const Label = styled.label`
   textarea {
     border: none;
     color: #fff;
-    background-color: #1e1e1e;
+    background-color: #8882;
     border-radius: 3px;
     padding: 0.75rem 1rem;
     margin: 0.25rem 0 0 0;
@@ -25,6 +25,11 @@ export const Label = styled.label`
   span {
     color: #888;
     font-size: 0.9rem;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: 1px solid var(--primary);
   }
 `;
 

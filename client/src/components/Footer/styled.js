@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Grid = styled.div`
   display: grid;
@@ -59,10 +59,17 @@ export const Form = styled.form`
   }
 `;
 
+export const footerTheme = ({ theme }) =>
+  theme.isDark
+    ? css`
+        background: #0004;
+      `
+    : css`
+        background: #1e2025;
+      `;
 export const FooterContainer = styled.footer`
   position: relative;
   color: #fff;
-  background-color: #000;
   padding: 4rem 0;
 
   .divider {
@@ -76,4 +83,6 @@ export const FooterContainer = styled.footer`
     clip-path: polygon(50% 75%, 100% 0, 100% 100%, 0 100%, 0 0);
     animation: clip-anim 2s infinite linear;
   }
+
+  ${footerTheme}
 `;

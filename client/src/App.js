@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Route, Routes } from 'react-router';
 import { ThemeProvider } from 'styled-components';
 
@@ -12,8 +12,12 @@ import Test from './pages/Test';
 
 import { GlobalStyles, theme } from './utils/styled';
 
+const preferedTheme =
+  window.matchMedia &&
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
+
 function App() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(preferedTheme);
 
   const toggleTheme = () => setIsDark((old) => !old);
 

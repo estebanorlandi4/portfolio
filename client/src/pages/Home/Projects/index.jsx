@@ -1,3 +1,5 @@
+import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { BiGlobe } from 'react-icons/bi';
 import { BsGithub } from 'react-icons/bs';
 
@@ -14,7 +16,7 @@ function Projects() {
       <Container>
         {projects.map(({ name, github, techs, url, styles }) => (
           <Project key={name} bgPos={styles.bgPos}>
-            <img src={styles.bg} alt={name} />
+            <motion.img loading="lazy" src={styles.bg} alt={name} />
 
             <div className="info">
               {techs && techs.length && (

@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   .SkillsContainer {
+    position: relative;
     max-width: 100%;
     overflow: hidden;
     overflow-x: scroll;

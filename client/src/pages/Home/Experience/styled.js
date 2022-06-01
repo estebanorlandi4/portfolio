@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import breakpoints from '../../../utils/breakpoints';
 
 export const Article = styled.article`
@@ -45,15 +45,26 @@ export const Name = styled.h3`
     }
   }
 `;
+
+const descriptionDark = ({ theme }) =>
+  theme.isDark
+    ? css`
+        color: #888;
+      `
+    : css`
+        color: #555;
+      `;
+
 export const Description = styled.p`
   line-height: 2rem;
   font-size: 1.1rem;
-  color: #555;
 
   @media screen and (${breakpoints.mobile}) {
     line-height: 1.37rem;
     font-size: 0.85rem;
   }
+
+  ${descriptionDark}
 `;
 export const Place = styled.span`
   font-weight: 400;

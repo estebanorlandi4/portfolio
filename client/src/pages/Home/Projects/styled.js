@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
+import breakpoints from '../../../utils/breakpoints';
 
 export const Container = styled.div`
   margin: 2rem 0 0 0;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  display: flex;
+  flex-flow: column;
+  gap: 4rem;
 `;
 
 const projectDark = ({ theme }) => (theme.isDark ? css`` : '');
@@ -33,21 +34,9 @@ export const Project = styled.article`
     margin: 1rem 0 0 0;
   }
 
-  :nth-child(2n) {
-    flex-flow: row-reverse;
-    .info {
-      align-items: flex-end;
-      .top {
-        align-items: flex-end;
-      }
-    }
-  }
-
   img {
     width: 10rem;
     height: auto;
-    transition: all 0.25s;
-    z-index: 10;
     border-radius: 5px;
   }
 
@@ -78,6 +67,18 @@ export const Project = styled.article`
     `}
 
   ${projectDark}
+
+  @media screen and (min-width: ${breakpoints.values.pc - 100}px) {
+    :nth-child(2n) {
+      flex-flow: row-reverse;
+      .info {
+        align-items: flex-end;
+        .top {
+          align-items: flex-end;
+        }
+      }
+    }
+  }
 `;
 
 export const URLs = styled.div`

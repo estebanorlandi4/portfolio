@@ -52,7 +52,7 @@ export const Container = styled.div`
   z-index: 9999;
   transform: translate(0, -50%);
 
-  @media screen and (${breakpoints.mobile}) {
+  @media screen and (max-width: ${breakpoints.values.pc}px) {
     display: none;
   }
 `;

@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import { BiChevronRight } from 'react-icons/bi';
 import { motion, AnimatePresence } from 'framer-motion';
-import Skill from '../../../components/Skill';
 
+import Skill from '../../../components/Skill';
 import { SectionHeader } from '../../../components/Styled';
+
 import { skills } from '../../../utils/skills';
+
 import { Container, Option, Options } from './styled';
 
 const size = 44;
@@ -43,7 +46,7 @@ function Skills() {
       </Options>
 
       <div className="SkillsContainer">
-        <AnimatePresence className="SkillsContainer" layout exitBeforeEnter>
+        <AnimatePresence initial={false}>
           {active.component.map((skill) => (
             <Skill
               key={skill.name + new Date().getTime().toString()}
