@@ -4,7 +4,7 @@ import Skills from './Skills';
 import Projects from './Projects';
 import Experience from './Experience';
 
-import { motionSections, variantsSection } from '../../utils/motionVariants';
+import { motionSections } from '../../utils/motionVariants';
 import { Section } from '../../components/Styled';
 
 const { variants, viewport } = motionSections;

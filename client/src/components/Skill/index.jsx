@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-
 import Toast from '../Toast';
 
 import { Card, IconContainer } from './styled';
@@ -14,9 +12,9 @@ function Skill({ icon, name, color, size }) {
 
   return (
     <Card
-      initial={{ y: 50, x: getRandom(), opacity: 0 }}
+      initial={{ y: 0, x: 100, opacity: 0 }}
       animate={{ y: 0, x: 0, opacity: 1 }}
-      exit={{ y: 50, x: getRandom(), opacity: 0 }}
+      exit={{ y: 0, x: -100, opacity: 1 }}
       transition={{ duration: 0.2 }}
       bg={color}
     >

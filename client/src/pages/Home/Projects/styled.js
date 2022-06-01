@@ -7,6 +7,7 @@ export const Container = styled.div`
   grid-template-rows: repeat(2, 1fr);
 `;
 
+const projectDark = ({ theme }) => (theme.isDark ? css`` : '');
 export const Project = styled.article`
   position: relative;
   display: flex;
@@ -14,7 +15,6 @@ export const Project = styled.article`
   align-items: center;
   gap: 1.5rem;
   height: 100%;
-  color: #000;
   box-shadow: 0 0.15rem 0.3rem #0000;
   transition: all 0.25s;
 
@@ -76,6 +76,8 @@ export const Project = styled.article`
     css`
       background-position: ${bgPos};
     `}
+
+  ${projectDark}
 `;
 
 export const URLs = styled.div`

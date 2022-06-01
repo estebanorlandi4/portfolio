@@ -1,26 +1,11 @@
-import styled from 'styled-components';
-
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { SiGmail } from 'react-icons/si';
 
 import FadeIn from '../Animations';
 import Contact from '../Contact';
 
-import { AccountsContainer } from './styled';
-import breakpoints from '../../utils/breakpoints';
+import { AccountsContainer, Container } from './styled';
 import Toast from '../Toast';
-
-const Container = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 2rem;
-  z-index: 9999;
-  transform: translate(0, -50%);
-
-  @media screen and (${breakpoints.mobile}) {
-    display: none;
-  }
-`;
 
 function Accounts() {
   return (

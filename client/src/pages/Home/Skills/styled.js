@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   .SkillsContainer {
@@ -47,4 +47,10 @@ export const Option = styled.li`
     height: 1px;
     background-color: var(--primary);
   }
+
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      color: var(--primary);
+    `}
 `;

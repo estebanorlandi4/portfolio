@@ -12,8 +12,6 @@ import Test from './pages/Test';
 
 import { GlobalStyles, theme } from './utils/styled';
 
-import './App.css';
-
 function App() {
   const [isDark, setIsDark] = useState(false);
 

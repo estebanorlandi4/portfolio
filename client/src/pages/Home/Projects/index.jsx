@@ -19,7 +19,7 @@ function Projects() {
             <div className="info">
               {techs && techs.length && (
                 <Techs>
-                  {techs.map((tech, i) => {
+                  {techs.map((tech) => {
                     const Icon = tech.icon || null;
                     return (
                       <Tech

@@ -42,8 +42,8 @@ function Skills() {
         ))}
       </Options>
 
-      <AnimatePresence className="SkillsContainer" layout exitBeforeEnter>
-        <div className="SkillsContainer">
+      <div className="SkillsContainer">
+        <AnimatePresence className="SkillsContainer" layout exitBeforeEnter>
           {active.component.map((skill) => (
             <Skill
               key={skill.name + new Date().getTime().toString()}
@@ -51,8 +51,8 @@ function Skills() {
               size={size - skill.size}
             />
           ))}
-        </div>
-      </AnimatePresence>
+        </AnimatePresence>
+      </div>
     </Container>
   );
 }

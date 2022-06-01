@@ -23,6 +23,7 @@ export const theme = {
 export const GlobalStyles = createGlobalStyle`
   body {
     background: ${({ theme: th }) => th.bg};
-    color: ${({ theme: th }) => th.fg(1)}
+    color: ${({ theme: th }) => th.fg(1)};
+    --text: ${({ theme: th }) => (th.isDark ? '#fff' : '#1e1e1e')}
   }
 `;

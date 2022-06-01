@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import breakpoints from '../../utils/breakpoints';
 
 export const AccountsContainer = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ export const AccountsContainer = styled.div`
     content: '';
     width: 2px;
     height: 2rem;
-    background: #000;
+    background: var(--text);
   }
   ::before {
     margin: 0 0 1rem 0;
@@ -22,7 +23,7 @@ export const AccountsContainer = styled.div`
 
   .icon {
     box-sizing: content-box;
-    color: #000;
+    color: var(--text);
     padding: 0.25rem;
     --size: 1.25rem;
     width: var(--size);
@@ -44,4 +45,14 @@ export const AccountsContainer = styled.div`
   }
 `;
 
-export const Account = styled.a``;
+export const Container = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 2rem;
+  z-index: 9999;
+  transform: translate(0, -50%);
+
+  @media screen and (${breakpoints.mobile}) {
+    display: none;
+  }
+`;
