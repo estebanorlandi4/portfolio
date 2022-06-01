@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router';
+import { ThemeProvider } from 'styled-components';
 
 import Navbar from './components/Navbar';
 import Accounts from './components/Accounts';
@@ -6,26 +8,35 @@ import Footer from './components/Footer';
 import { Container } from './components/Styled';
 
 import Home from './pages/Home';
-
-import './App.css';
 import Test from './pages/Test';
 
+import { GlobalStyles, theme } from './utils/styled';
+
+import './App.css';
+
 function App() {
+  const [isDark, setIsDark] = useState(false);
+
+  const toggleTheme = () => setIsDark((old) => !old);
+
   return (
-    <div id="top">
-      {/* Navigation */}
-      <Navbar />
-      <Accounts />
+    <ThemeProvider theme={isDark ? theme.dark : theme.light}>
+      <GlobalStyles />
 
-      <Container>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/test" element={<Test />} />
-        </Routes>
-      </Container>
+      <div id="top">
+        <Navbar changeTheme={toggleTheme} />
+        <Accounts />
 
-      <Footer />
-    </div>
+        <Container>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/test" element={<Test />} />
+          </Routes>
+        </Container>
+
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 

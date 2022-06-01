@@ -4,21 +4,22 @@ import Toast from '../Toast';
 
 import { Card, IconContainer } from './styled';
 
+const getRandom = () => {
+  const r = Math.floor(Math.random() * (100 - 50) + 50);
+  return Math.round(Math.random()) ? r * -1 : r;
+};
+
 function Skill({ icon, name, color, size }) {
-  const [animate, setAnimate] = useState(null);
   const Icon = icon || 'img';
 
-  const auxX = Math.floor(Math.random() * 200);
-  const rx = Math.round(Math.random()) ? auxX : auxX * -1;
-  const ry = Math.floor(Math.random() * (200 - 100) + 100);
-
-  useEffect(() => {
-    setAnimate(`${rx}px, ${ry}px`);
-  }, []);
-
-  if (!animate) return null;
   return (
-    <Card bg={color}>
+    <Card
+      initial={{ y: 50, x: getRandom(), opacity: 0 }}
+      animate={{ y: 0, x: 0, opacity: 1 }}
+      exit={{ y: 50, x: getRandom(), opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      bg={color}
+    >
       <Toast className="toast" direction="bottom">
         {name}
       </Toast>

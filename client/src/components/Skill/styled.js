@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const Card = styled.div`
+export const Card = styled(motion.div)`
   position: relative;
   width: 7rem;
   aspect-ratio: 1/1;
@@ -24,7 +25,7 @@ export const Card = styled.div`
           ${bg};
         background-size: 500%;
         color: #fff;
-        box-shadow: 0 0.5rem 0.5rem -0.3rem ${bg}55;
+
         transform: translate(0, 0) scale(100%);
         transition: all 0.25s;
       }
@@ -32,8 +33,8 @@ export const Card = styled.div`
       :hover .icon-container {
         animation: bg-2 1s linear infinite;
         transform: translate(0, -5px) scale(115%);
-        box-shadow: 0 0.75rem 0.5rem -0.3rem ${bg}88;
       }
+
       @keyframes bg-2 {
         from {
           background-position: 0 0;
@@ -42,12 +43,24 @@ export const Card = styled.div`
           background-position: 100% 100%;
         }
       }
+
+      ${({ theme }) =>
+        !theme.isDark &&
+        css`
+          .icon-container {
+            box-shadow: 0 0.5rem 0.5rem -0.3rem ${bg}55;
+          }
+          :hover .icon-container {
+            box-shadow: 0 0.75rem 0.5rem -0.3rem ${bg}88;
+          }
+        `}
     `}
 `;
+
 export const IconContainer = styled.div`
-  padding: 1.5rem;
   display: grid;
-  height: 100%;
+  width: 7rem;
+  height: 7rem;
   place-items: center;
   border-radius: 5px;
 `;

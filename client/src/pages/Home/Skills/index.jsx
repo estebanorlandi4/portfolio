@@ -23,10 +23,6 @@ const tabs = [
   },
 ];
 
-const getRandom = () => {
-  const r = Math.floor(Math.random() * (100 - 50) + 50);
-  return Math.round(Math.random()) ? r * -1 : r;
-};
 function Skills() {
   const [active, setActive] = useState(tabs[0]);
 
@@ -35,7 +31,7 @@ function Skills() {
       <SectionHeader>Habilidades</SectionHeader>
       <Options>
         {tabs.map((tab) => (
-          <Option isActive={active.label === tab.label}>
+          <Option key={tab.label} isActive={active.label === tab.label}>
             <button onClick={() => setActive(tab)} type="button">
               {tab.label}
               {active.label === tab.label && (
@@ -49,15 +45,11 @@ function Skills() {
       <AnimatePresence className="SkillsContainer" layout exitBeforeEnter>
         <div className="SkillsContainer">
           {active.component.map((skill) => (
-            <motion.div
+            <Skill
               key={skill.name + new Date().getTime().toString()}
-              initial={{ y: 50, x: getRandom(), opacity: 0 }}
-              animate={{ y: 0, x: 0, opacity: 1 }}
-              exit={{ y: 50, x: getRandom(), opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Skill {...skill} size={size} />
-            </motion.div>
+              {...skill}
+              size={size - skill.size}
+            />
           ))}
         </div>
       </AnimatePresence>

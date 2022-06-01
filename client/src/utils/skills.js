@@ -86,8 +86,21 @@ export const toolsSkills = [
   { name: 'Linux', icon: icons.linux, color: colors.linux },
 ];
 
+const difference = 10;
+
 export const skills = {
-  front: frontSkills,
-  back: backSkills,
-  tools: toolsSkills,
+  front: frontSkills.map((skill) => ({
+    ...skill,
+    size: /^si/i.test(skill.icon.name) ? difference : 0,
+  })),
+
+  back: backSkills.map((skill) => ({
+    ...skill,
+    size: /^si/i.test(skill.icon.name) ? difference : 0,
+  })),
+
+  tools: toolsSkills.map((skill) => ({
+    ...skill,
+    size: /^si/i.test(skill.icon.name) ? difference : 0,
+  })),
 };

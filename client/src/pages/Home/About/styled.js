@@ -14,8 +14,10 @@ export const Container = styled.div`
 `;
 
 export const P1 = styled.p`
-  font-size: 1.25rem;
+  color: ${({ theme }) => (theme.isDark ? theme.fg() : theme.fg())};
   line-height: 2rem;
+  font-size: 1.25rem;
+  font-weight: 500;
 
   @media screen and (${breakpoints.mobile}) {
     font-size: 0.95rem;
@@ -24,9 +26,10 @@ export const P1 = styled.p`
 `;
 
 export const P2 = styled.p`
-  color: #555;
-  font-size: 1.1rem;
-  line-height: 2rem;
+  color: ${({ theme }) => (theme.isDark ? theme.fg(0.5) : theme.fg(1))};
+  line-height: 2.5ch;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
   font-weight: 300;
 
   @media screen and (${breakpoints.mobile}) {

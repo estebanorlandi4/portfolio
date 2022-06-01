@@ -35,6 +35,7 @@ export const Option = styled.li`
     padding: 0.5rem 0.75rem;
     font-size: 0.9rem;
     font-weight: 600;
+    text-transform: capitalize;
     transition: all 0.25s;
   }
 

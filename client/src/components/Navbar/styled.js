@@ -1,6 +1,23 @@
 import styled, { css } from 'styled-components';
 import breakpoints from '../../utils/breakpoints';
 
+export const Nav = styled.nav`
+  background: ${({ theme }) => theme.bg};
+
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+
+  .container {
+    width: 85vw;
+    margin: 0 auto;
+    padding: 0.75rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+`;
+
 export const Brand = styled.p`
   display: flex;
   align-items: center;
@@ -12,8 +29,8 @@ export const Brand = styled.p`
   line-height: 0.9rem;
   font-size: 0.75rem;
 
-  .name {
-    color: #1e1e1e;
+  span {
+    color: ${({ theme }) => theme.fg()};
   }
 
   .logo {
@@ -23,15 +40,6 @@ export const Brand = styled.p`
   @media screen and (${breakpoints.mobile}) {
     margin: 0 auto;
   }
-`;
-
-export const Container = styled.div`
-  width: 85vw;
-  margin: 0 auto;
-  padding: 0.75rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 `;
 
 export const Menu = styled.ul`
@@ -86,13 +94,6 @@ export const Menu = styled.ul`
             display: none;
           }
         `};
-`;
-
-export const Nav = styled.nav`
-  background: #fff;
-  position: fixed;
-  z-index: 9999;
-  width: 100%;
 `;
 
 export const NavLink = styled.a`
