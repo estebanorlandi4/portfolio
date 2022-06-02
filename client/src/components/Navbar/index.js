@@ -5,7 +5,11 @@ import { Brand, Nav } from './styled';
 import Logo from '../../assets/images/logo.svg';
 import Accounts from '../Accounts';
 
-function Navbar({ changeTheme }) {
+const ScrollTo = ({ id, children }) => <a href={`#${id}`}>{children}</a>;
+
+function Navbar({ ids, changeTheme }) {
+  const { home, about, skills, projects, contact } = ids;
+
   return (
     <Nav>
       <div className="container">
@@ -13,6 +17,14 @@ function Navbar({ changeTheme }) {
           <img loading="lazy" src={Logo} alt="" className="logo" />
           <span>esteban orlandi</span>
         </Brand>
+
+        <div className="scrolls">
+          <ScrollTo id={home}>Home</ScrollTo>
+          <ScrollTo id={about}>about</ScrollTo>
+          <ScrollTo id={skills}>skills</ScrollTo>
+          <ScrollTo id={projects}>projects</ScrollTo>
+          <ScrollTo id={contact}>contact</ScrollTo>
+        </div>
 
         <div className="right">
           <Accounts flow="row" always />

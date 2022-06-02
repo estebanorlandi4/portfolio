@@ -24,6 +24,22 @@ export const Nav = styled.nav`
   .theme-icon {
     display: flex;
   }
+
+  .scrolls {
+    display: flex;
+    gap: 0.5rem;
+    flex-flow: row;
+    align-items: center;
+    a {
+      color: #888;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.9rem;
+
+      :hover {
+        color: #fff;
+      }
+    }
+  }
 `;
 
 export const Brand = styled.p`

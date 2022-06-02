@@ -31,6 +31,6 @@ export const variantsSection = {
 };
 
 export const motionSections = {
-  viewport: { once: true },
+  viewport: { once: false },
   variants: variantsSection,
 };

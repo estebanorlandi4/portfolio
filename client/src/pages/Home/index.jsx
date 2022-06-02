@@ -16,28 +16,38 @@ const sharedProps = {
   variants,
 };
 
-function Home() {
+function Home({ ids }) {
+  const { home, about, skills, projects, experience } = ids;
+
   return (
     <main>
-      <div id="intro">
+      <div id={home}>
         <Intro />
       </div>
 
-      <Section {...sharedProps} id="about">
-        <About />
-      </Section>
+      <div id={about}>
+        <Section {...sharedProps}>
+          <About />
+        </Section>
+      </div>
 
-      <Section {...sharedProps} id="skills">
-        <Skills />
-      </Section>
+      <div id={skills}>
+        <Section {...sharedProps}>
+          <Skills />
+        </Section>
+      </div>
 
-      <Section {...sharedProps} id="projects">
-        <Projects />
-      </Section>
+      <div id={projects}>
+        <Section {...sharedProps}>
+          <Projects />
+        </Section>
+      </div>
 
-      <Section {...sharedProps} id="experience">
-        <Experience />
-      </Section>
+      <div id={experience}>
+        <Section {...sharedProps}>
+          <Experience />
+        </Section>
+      </div>
     </main>
   );
 }

@@ -17,23 +17,30 @@ const preferedTheme =
 
 function App() {
   const [isDark, setIsDark] = useState(preferedTheme);
-
   const toggleTheme = () => setIsDark((old) => !old);
+
+  const ids = {
+    home: 'home',
+    about: 'about',
+    skills: 'skills',
+    projects: 'projects',
+    contact: 'contact',
+  };
 
   return (
     <ThemeProvider theme={isDark ? theme.dark : theme.light}>
       <GlobalStyles />
 
-      <div id="top">
-        <Navbar changeTheme={toggleTheme} />
+      <Navbar ids={ids} changeTheme={toggleTheme} />
 
-        <Container>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/test" element={<Test />} />
-          </Routes>
-        </Container>
+      <Container>
+        <Routes>
+          <Route exact path="/" element={<Home ids={ids} />} />
+          <Route exact path="/test" element={<Test />} />
+        </Routes>
+      </Container>
 
+      <div id={ids.contact}>
         <Footer />
       </div>
     </ThemeProvider>
