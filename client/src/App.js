@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Test from './pages/Test';
 
 import { GlobalStyles, theme } from './utils/styled';
+import './utils/emailjs';
 
 const preferedTheme =
   window.matchMedia &&

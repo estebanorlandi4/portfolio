@@ -1,88 +1,107 @@
+import { AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-
-import Input from '../Input';
-
+import { BiCheck, BiErrorAlt } from 'react-icons/bi';
 import { ContactMethods, Icons } from '../../utils';
-import { Container, SectionHeader } from '../Styled';
-import { Contacts, FooterContainer, Form, Grid } from './styled';
+
 import Contact from '../Contact';
+import FormContact from '../Forms';
+import Popup from '../Popup';
 
-const initialState = {
-  name: '',
-  email: '',
-  message: '',
+import { Container, SectionHeader } from '../Styled';
+import {
+  Contacts,
+  FooterContainer,
+  Grid,
+  Loader,
+  PopupContent,
+} from './styled';
+
+const init = {
+  succes: null,
+  message: null,
+  res: null,
+  isLoading: false,
 };
-
 function Footer() {
-  const [inputs, setInputs] = useState(initialState);
+  const [popup, setPopup] = useState(init);
 
-  const onChange = ({ target: { name, value } }) => {
-    setInputs((old) => ({ ...old, [name]: value }));
-  };
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    // eslint-disable-next-line
-    console.log(inputs);
+  const handlePopup = ({ message, success, isLoading, wasSend }) => {
+    setPopup((old) => ({ ...old, success, message, wasSend, isLoading }));
   };
 
   return (
-    <FooterContainer>
-      <div className="divider" />
+    <>
+      <FooterContainer>
+        <div className="divider" />
 
-      <Container>
-        <section>
-          <SectionHeader>Contacto</SectionHeader>
+        <Container>
+          <section>
+            <SectionHeader>Contacto</SectionHeader>
+            <FormContact cb={handlePopup} />
 
-          <Grid>
-            <Form onSubmit={onSubmit}>
-              <div className="inline">
-                <Input
-                  onChange={onChange}
-                  name="name"
-                  placeholder="Your Name"
-                  type="text"
-                />
+            <Grid>
+              <Contacts>
+                <li>
+                  <Contact url={ContactMethods.linkedin.url}>
+                    <Icons.Linkedin size={24} />
+                  </Contact>
+                </li>
+                <li>
+                  <Contact url={ContactMethods.github.url}>
+                    <Icons.Github size={24} />
+                  </Contact>
+                </li>
+                <li>
+                  <Contact url={ContactMethods.gmail.url}>
+                    <Icons.Gmail size={24} />
+                  </Contact>
+                </li>
+              </Contacts>
+            </Grid>
+          </section>
+        </Container>
+      </FooterContainer>
 
-                <Input
-                  onChange={onChange}
-                  name="email"
-                  placeholder="Your Email"
-                  type="text"
-                />
-              </div>
+      <AnimatePresence>
+        {popup.isLoading && (
+          <Popup>
+            <PopupContent>
+              <Loader>
+                <div />
+                <div />
+              </Loader>
+              <span>Sending message...</span>
+            </PopupContent>
+          </Popup>
+        )}
+      </AnimatePresence>
 
-              <Input
-                onChange={onChange}
-                name="message"
-                placeholder="Type your message here"
-                as="textarea"
-              />
-
-              <button type="submit">Send message</button>
-            </Form>
-
-            <Contacts>
-              <li>
-                <Contact url={ContactMethods.linkedin.url}>
-                  <Icons.Linkedin size={24} />
-                </Contact>
-              </li>
-              <li>
-                <Contact url={ContactMethods.github.url}>
-                  <Icons.Github size={24} />
-                </Contact>
-              </li>
-              <li>
-                <Contact url={ContactMethods.gmail.url}>
-                  <Icons.Gmail size={24} />
-                </Contact>
-              </li>
-            </Contacts>
-          </Grid>
-        </section>
-      </Container>
-    </FooterContainer>
+      <AnimatePresence>
+        {popup.wasSend ? (
+          <Popup hide={() => setPopup(init)} close>
+            {popup.success ? (
+              <PopupContent>
+                <BiCheck className="icon" />
+                <h3>Thank you!!!</h3>
+                <p>
+                  Thank you for contacting me, I will answer you as soon as
+                  possible.
+                </p>
+              </PopupContent>
+            ) : (
+              <PopupContent>
+                <BiErrorAlt className="icon" />
+                <h3>Sorry!!!</h3>
+                <p>
+                  Something went wrong while sending the email, please try again
+                  later or use another form of contact
+                </p>
+              </PopupContent>
+            )}
+          </Popup>
+        ) : null}
+      </AnimatePresence>
+    </>
   );
 }
 
