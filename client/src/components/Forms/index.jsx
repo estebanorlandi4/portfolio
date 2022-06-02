@@ -33,7 +33,7 @@ function FormContact({ cb }) {
 
     Object.entries(([key, value]) => {
       const v = validate({ key, value });
-      if (v && !v.isValid) console.log(v.message);
+      // if (v && !v.isValid) console.log(v.message);
     });
 
     cb({ isLoading: true, wasSend: false });
