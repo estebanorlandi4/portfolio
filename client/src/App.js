@@ -27,7 +27,7 @@ function App() {
 
       <div id="top">
         <Navbar changeTheme={toggleTheme} />
-        <Accounts />
+        <Accounts toast />
 
         <Container>
           <Routes>

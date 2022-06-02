@@ -4,6 +4,7 @@ export const Grid = styled.div`
   display: grid;
   place-items: center;
   grid-template-columns: 1fr;
+  width: 100%;
 `;
 
 export const Contacts = styled.ul`
@@ -68,6 +69,7 @@ export const footerTheme = ({ theme }) =>
         background: #1e2025;
       `;
 export const FooterContainer = styled.footer`
+  width: 100%;
   position: relative;
   color: #fff;
   padding: 4rem 0;

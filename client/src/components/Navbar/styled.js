@@ -16,6 +16,14 @@ export const Nav = styled.nav`
     align-items: center;
     justify-content: space-between;
   }
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .theme-icon {
+    display: flex;
+  }
 `;
 
 export const Brand = styled.p`

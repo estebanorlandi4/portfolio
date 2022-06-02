@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Label = styled.label`
   input,
   textarea {
+    width: 100%;
     border: none;
     color: #fff;
     background-color: #8882;

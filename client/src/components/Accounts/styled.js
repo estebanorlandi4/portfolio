@@ -1,11 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import breakpoints from '../../utils/breakpoints';
 
 export const AccountsContainer = styled.div`
   display: flex;
   flex-flow: column;
+
   align-items: center;
   gap: 0.5rem;
+  padding: 0;
+  height: max-content;
 
   ::before,
   ::after {
@@ -21,6 +24,16 @@ export const AccountsContainer = styled.div`
     margin: 1rem 0 0 0;
   }
 
+  ${({ flow }) =>
+    flow &&
+    css`
+      flex-flow: ${flow || 'column'};
+      ::before,
+      ::after {
+        display: none;
+      }
+    `};
+
   .icon {
     box-sizing: content-box;
     color: var(--text);
@@ -32,6 +45,8 @@ export const AccountsContainer = styled.div`
 
   .contact {
     position: relative;
+    display: flex;
+    align-items: center;
 
     .toast {
       top: 50%;
@@ -46,13 +61,18 @@ export const AccountsContainer = styled.div`
 `;
 
 export const Container = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 2rem;
-  z-index: 9999;
-  transform: translate(0, -50%);
+  position: relative;
 
-  @media screen and (max-width: ${breakpoints.values.pc}px) {
-    display: none;
-  }
+  ${({ always }) =>
+    !always &&
+    css`
+      top: 50%;
+      left: 2rem;
+      z-index: 9999;
+      transform: translate(0, -50%);
+      position: fixed;
+      @media screen and (max-width: ${breakpoints.values.pc}px) {
+        display: none;
+      }
+    `}
 `;
