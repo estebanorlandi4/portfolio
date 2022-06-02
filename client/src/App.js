@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router';
 import { ThemeProvider } from 'styled-components';
 
 import Navbar from './components/Navbar';
-import Accounts from './components/Accounts';
 import Footer from './components/Footer';
 import { Container } from './components/Styled';
 
@@ -27,7 +26,6 @@ function App() {
 
       <div id="top">
         <Navbar changeTheme={toggleTheme} />
-        <Accounts toast />
 
         <Container>
           <Routes>

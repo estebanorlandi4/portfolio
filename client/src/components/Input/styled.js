@@ -30,7 +30,7 @@ export const Label = styled.label`
 
   input:focus,
   textarea:focus {
-    outline: 1px solid var(--primary);
+    outline: 1.5px solid var(--primary);
   }
 `;
 

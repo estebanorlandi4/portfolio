@@ -57,6 +57,13 @@ export const Form = styled.form`
     padding: 0.75rem 1rem;
     font-weight: 600;
     width: max-content;
+    box-shadow: 0 0.25rem 0.5rem ${({ theme }) => theme.primary}00;
+    transition: all 0.25s;
+
+    :hover {
+      transform: translate(0, -2px);
+      box-shadow: 0 0.25rem 0.5rem ${({ theme }) => theme.primary}33;
+    }
   }
 `;
 

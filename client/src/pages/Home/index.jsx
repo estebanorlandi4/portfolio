@@ -9,6 +9,13 @@ import { Section } from '../../components/Styled';
 
 const { variants, viewport } = motionSections;
 
+const sharedProps = {
+  initial: 'hidden',
+  whileInView: 'visible',
+  viewport,
+  variants,
+};
+
 function Home() {
   return (
     <main>
@@ -16,43 +23,19 @@ function Home() {
         <Intro />
       </div>
 
-      <Section
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}
-        variants={variants}
-        id="about"
-      >
+      <Section {...sharedProps} id="about">
         <About />
       </Section>
 
-      <Section
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}
-        variants={variants}
-        id="skills"
-      >
+      <Section {...sharedProps} id="skills">
         <Skills />
       </Section>
 
-      <Section
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}
-        variants={variants}
-        id="projects"
-      >
+      <Section {...sharedProps} id="projects">
         <Projects />
       </Section>
 
-      <Section
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}
-        variants={variants}
-        id="experience"
-      >
+      <Section {...sharedProps} id="experience">
         <Experience />
       </Section>
     </main>
