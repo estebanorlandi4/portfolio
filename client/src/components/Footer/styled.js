@@ -60,40 +60,29 @@ export const PopupContent = styled.div`
   flex-flow: column;
   align-items: center;
 
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 2rem 2rem;
   position: relative;
-  background-color: var(--primary);
   border-radius: 5px;
-  color: #fff;
-  box-shadow: 0 0 1rem #0005;
+
   width: 100%;
   max-width: 25rem;
 
   .icon {
-    position: absolute;
-    top: 0;
-    left: 50%;
-
     display: grid;
     place-items: center;
     margin: 0 auto;
     width: 6rem;
     height: 6rem;
     padding: 1rem;
-    background-color: #fff;
-    color: var(--primary);
-    border-radius: 15px;
-
-    transform: translate(-50%, -50%);
+    color: var(--accent);
   }
 
   p,
   h3 {
     text-align: center;
-    width: 80%;
   }
   h3 {
-    margin: 5.5rem auto 0 auto;
+    margin: 2rem auto 0 auto;
     font-size: 1.75rem;
   }
   p {
@@ -104,11 +93,26 @@ export const PopupContent = styled.div`
   span {
     display: block;
     font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--primary);
     text-transform: capitalize;
-    margin: 1rem 0 0 0;
+    margin: 1.5rem 0 0 0;
     text-align: center;
     width: max-content;
   }
+
+  ${({ theme }) =>
+    theme.isDark
+      ? css`
+          background-color: #1a1c20;
+          box-shadow: 0 0 1rem #0005;
+          color: #fff;
+        `
+      : css`
+          background-color: #fff;
+          box-shadow: 0 0 1rem #0002;
+          color: #1e1e1e;
+        `}
 `;
 
 export const Loader = styled.div`
@@ -123,7 +127,7 @@ export const Loader = styled.div`
     top: 36px;
     left: 36px;
     position: absolute;
-    border: 4px solid #fcf;
+    border: 4px solid var(--primary);
     opacity: 1;
     border-radius: 50%;
     animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;

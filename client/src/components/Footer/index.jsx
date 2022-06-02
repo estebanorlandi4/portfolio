@@ -78,7 +78,7 @@ function Footer() {
 
       <AnimatePresence>
         {popup.wasSend ? (
-          <Popup hide={() => setPopup(init)} close>
+          <Popup hideAfter={7 * 1000} hide={() => setPopup(init)} close>
             {popup.success ? (
               <PopupContent>
                 <BiCheck className="icon" />
@@ -94,7 +94,7 @@ function Footer() {
                 <h3>Sorry!!!</h3>
                 <p>
                   Something went wrong while sending the email, please try again
-                  later or use another form of contact
+                  later or use another form of contact.
                 </p>
               </PopupContent>
             )}

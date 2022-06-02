@@ -8,6 +8,7 @@
 
 :root {
   --primary: #764ABC;
+  --accent: #0ff;
   --bg-linear: linear-gradient(0deg, var(--primary) 0%, transparent),
     linear-gradient(45deg, #f0f 0%, transparent),
     linear-gradient(-125deg, #0ff 0%, transparent);
