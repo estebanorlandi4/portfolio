@@ -4,12 +4,11 @@ import Input from '../Input';
 import { FormContainer } from './styled';
 
 import EmailKeys from '../../utils/emailjs';
-import validate from '../../utils/validate';
 
 const initialState = {
-  name: '',
-  email: '',
-  message: '',
+  name: { value: '', error: '', isValid: false },
+  email: { value: '', error: '', isValid: false },
+  message: { value: '', error: '', isValid: false },
 };
 
 emailjs.init('5no1tMFXGOvvszz6s');
@@ -17,7 +16,10 @@ function FormContact({ cb }) {
   const [inputs, setInputs] = useState(initialState);
 
   const onChange = ({ target: { name, value } }) => {
-    setInputs((old) => ({ ...old, [name]: value }));
+    setInputs((old) => ({
+      ...old,
+      [name]: { ...old[name], value },
+    }));
   };
 
   const handleSuccess = (res) => {
@@ -26,32 +28,35 @@ function FormContact({ cb }) {
   };
   const handleError = (res) => {
     cb({ isLading: false, success: false, res, wasSend: true });
-    setInputs(initialState);
   };
   const onSubmit = (e) => {
     e.preventDefault();
 
-    Object.entries(([key, value]) => {
-      const v = validate({ key, value });
-      // if (v && !v.isValid) console.log(v.message);
-    });
+    if (
+      !Object.values(inputs)
+        .map((input) => input.value)
+        .filter((value) => value).length
+    )
+      return null;
 
     cb({ isLoading: true, wasSend: false });
+    /*
     setTimeout(
       () => (Math.round(Math.random()) ? handleSuccess() : handleError()),
       5 * 1000,
     );
+    */
 
-    /*
-     emailjs
+    emailjs
       .send(EmailKeys.ID, EmailKeys.TEMPLATE, {
-        full_name: inputs.name,
-        email: inputs.email,
-        message: inputs.message,
+        full_name: inputs.name.value,
+        email: inputs.email.value,
+        message: inputs.message.value,
       })
       .then(handleSuccess)
       .catch(handleError);
-    */
+
+    return true;
   };
 
   return (
@@ -59,27 +64,30 @@ function FormContact({ cb }) {
       <div className="inline">
         <Input
           onChange={onChange}
-          value={inputs.name}
+          value={inputs.name.value}
           name="name"
           placeholder="Your Name"
           type="text"
+          required
         />
 
         <Input
           onChange={onChange}
-          value={inputs.email}
+          value={inputs.email.value}
           name="email"
           placeholder="Your Email"
-          type="text"
+          type="email"
+          required
         />
       </div>
 
       <Input
         onChange={onChange}
-        value={inputs.message}
+        value={inputs.message.value}
         name="message"
         placeholder="Type your message here"
         as="textarea"
+        required
       />
 
       <button type="submit">Send message</button>

@@ -65,7 +65,8 @@ export const PopupContent = styled.div`
   border-radius: 5px;
 
   width: 100%;
-  max-width: 25rem;
+  max-width: 35rem;
+  min-width: 25rem;
 
   .icon {
     display: grid;
@@ -80,6 +81,7 @@ export const PopupContent = styled.div`
   p,
   h3 {
     text-align: center;
+    width: 100%;
   }
   h3 {
     margin: 2rem auto 0 auto;
