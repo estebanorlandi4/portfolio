@@ -15,6 +15,12 @@ export const Nav = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media screen and (${breakpoints.tablet}) {
+      .scrolls,
+      .right {
+        display: none;
+      }
+    }
   }
   .right {
     display: flex;
@@ -94,7 +100,7 @@ export const Menu = styled.ul`
   ${({ mobile }) =>
     mobile
       ? css`
-          @media screen and (${breakpoints.mobile}) {
+          @media screen and (${breakpoints.tablet}) {
             position: fixed;
             bottom: 0;
             left: 0;
@@ -130,7 +136,29 @@ export const NavLink = styled.a`
 
 export const MenuButton = styled.button`
   display: none;
-  @media screen and (${breakpoints.mobile}) {
+  @media screen and (${breakpoints.tablet}) {
     display: block;
+  }
+`;
+
+export const MenuContainer = styled.div`
+  display: none;
+
+  @media screen and (${breakpoints.tablet}) {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background-color: ${({ theme }) => theme.bg};
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 2rem 0;
+
+    .scrolls {
+      flex-flow: column;
+    }
   }
 `;
