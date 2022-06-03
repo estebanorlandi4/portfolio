@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Route, Routes } from 'react-router';
+import { Navigate, Route, Routes } from 'react-router';
 import { ThemeProvider } from 'styled-components';
 
 import Navbar from './components/Navbar';
@@ -7,7 +7,6 @@ import Footer from './components/Footer';
 import { Container } from './components/Styled';
 
 import Home from './pages/Home';
-import Test from './pages/Test';
 
 import { GlobalStyles, theme } from './utils/styled';
 import './utils/emailjs';
@@ -37,7 +36,7 @@ function App() {
       <Container>
         <Routes>
           <Route exact path="/" element={<Home ids={ids} />} />
-          <Route exact path="/test" element={<Test />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Container>
 
