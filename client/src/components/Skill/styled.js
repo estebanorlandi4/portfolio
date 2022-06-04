@@ -3,8 +3,6 @@ import { motion } from 'framer-motion';
 
 export const Card = styled(motion.div)`
   position: relative;
-  width: 7rem;
-  aspect-ratio: 1/1;
   transition: all 0.25s;
 
   :hover .toast {

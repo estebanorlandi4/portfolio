@@ -13,7 +13,7 @@ function Skill({ exit, icon, name, color, size }) {
   return (
     <div>
       <Card
-        initial={{ y: 100, x: 0, opacity: 0, scale: 0.5 }}
+        initial={{ y: 0, x: 0, opacity: 0, scale: 0.5 }}
         animate={{ y: 0, x: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 0.2 }}
         bg={color}

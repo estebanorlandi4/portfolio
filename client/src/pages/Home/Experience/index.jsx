@@ -4,24 +4,24 @@ import { Article, Description, Header, Name, Place } from './styled';
 function Experience() {
   return (
     <Section>
-      <SectionHeader>Experiencia</SectionHeader>
+      <SectionHeader>Experience</SectionHeader>
 
       <Article>
         <Header>
           <Name>
             Full-Stack Teaching Assistant
             <div className="dates">
-              <time dateTime="2021-08">Septiembre 2021</time>-
-              <time dateTime="2021-11">Noviembre 2021</time>
+              <time dateTime="2021-08">September 2021</time>-
+              <time dateTime="2021-11">November 2021</time>
             </div>
           </Name>
           <Place>SoyHenry</Place>
         </Header>
         <Description>
-          Integración de los estudiantes al grupo de estudio. Orientación a los
-          estudiantes en sus primeros pasos de la cursada. Proponer ideas para
-          la mejora del Bootcamp. Ayudar con la resolución de los ejercicios y
-          promover la colaboración del grupo.
+          Integration of students to the students group. Orientation to students
+          in their first steps of the course. Propose ideas for the improvement
+          of the Bootcamp. Help with the resolution of the execises and promote
+          group collaboration.
         </Description>
       </Article>
     </Section>

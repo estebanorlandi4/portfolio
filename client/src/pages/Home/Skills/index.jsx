@@ -31,7 +31,7 @@ function Skills() {
 
   return (
     <Container>
-      <SectionHeader>Habilidades</SectionHeader>
+      <SectionHeader>Skills</SectionHeader>
       <Options>
         {tabs.map((tab) => (
           <Option key={tab.label} isActive={active.label === tab.label}>
@@ -46,7 +46,7 @@ function Skills() {
       </Options>
 
       <div className="SkillsContainer">
-        <AnimatePresence initial={false}>
+        <AnimatePresence>
           {active.component.map((skill) => (
             <Skill
               key={skill.name + new Date().getTime().toString()}

@@ -4,6 +4,7 @@ import {
   SiExpress,
   SiGit,
   SiGithub,
+  SiGraphql,
   SiLinux,
   SiMongodb,
   SiNextdotjs,
@@ -23,6 +24,7 @@ export const colors = {
   react: '#61Dafb',
   redux: '#764abc',
   next: '#000000',
+  graphql: '#e10098',
 
   // Back End
   node: '#339933',
@@ -46,6 +48,7 @@ export const icons = {
   react: DiReact,
   redux: SiRedux,
   next: SiNextdotjs,
+  graphql: SiGraphql,
 
   // Back End
   node: SiNodedotjs,
@@ -64,11 +67,12 @@ export const icons = {
 export const frontSkills = [
   { name: 'HTML5', icon: icons.html5, color: colors.html5 },
   { name: 'CSS3', icon: icons.css3, color: colors.css3 },
-  { name: 'JS', icon: icons.js, color: colors.js },
-  { name: 'TS', icon: icons.ts, color: colors.ts },
+  { name: 'JavaScript', icon: icons.js, color: colors.js },
+  { name: 'TypeScript', icon: icons.ts, color: colors.ts },
   { name: 'React', icon: icons.react, color: colors.react },
   { name: 'Redux', icon: icons.redux, color: colors.redux },
   { name: 'Next', icon: icons.next, color: colors.next },
+  { name: 'Graphql', icon: icons.graphql, color: colors.graphql },
 ];
 
 export const backSkills = [

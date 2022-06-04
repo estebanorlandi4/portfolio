@@ -36,7 +36,7 @@ function Footer() {
 
         <Container>
           <section>
-            <SectionHeader>Contacto</SectionHeader>
+            <SectionHeader>Get in touch!</SectionHeader>
             <FormContact cb={handlePopup} />
 
             <Grid>

@@ -1,22 +1,32 @@
-import { Section, SectionHeader } from '../../../components/Styled';
+import { SectionHeader } from '../../../components/Styled';
 import { Color, Container, P1, P2 } from './styled';
+
+const keywords = {
+  name: <Color>Esteban Orlandi</Color>,
+  fullstack: <Color>Full-Stack</Color>,
+  front: <Color>Front-End</Color>,
+};
 
 function About() {
   return (
     <div>
       <Container>
-        <SectionHeader>Sobre mí</SectionHeader>
+        <SectionHeader>About me</SectionHeader>
         <div>
           <P1>
-            Hola! Mi nombre es <Color>Esteban Orlandi</Color> soy un
-            desarrollador <Color>Full-Stack</Color> especializado en desarrollo{' '}
-            <Color>Front-End</Color>.
+            Hello! My name is {keywords.name} I am a {keywords.fullstack}{' '}
+            developer specialized in {keywords.front} development.
           </P1>
           <P2>
-            Estoy en constante aprendizaje y siempre busco mejorar tanto en
-            programacion como en diseño UI/UX. A la hora de programar trato de
-            hacer un codigo limpio y ordenado. En este momento estoy buscando
-            crecer profesionalmente como Desarrollador Front-End.
+            Soy de Buenos Aires (Argentina), estoy en constante aprendizaje y
+            siempre busco mejorar. A la hora de programar busco hacer un codigo
+            limpio y reutilizable.
+            {/*
+            I am constantly learning and always looking to improve both in
+            programming and UI/UX design. At the time of programming I try to
+            make a clean and tidy code. Right now I&apos;m looking to grow
+            professionally as a Front-End Developer.
+            */}
           </P2>
         </div>
       </Container>

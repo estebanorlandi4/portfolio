@@ -1,5 +1,4 @@
-import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { BiGlobe } from 'react-icons/bi';
 import { BsGithub } from 'react-icons/bs';
 
@@ -12,7 +11,7 @@ import { Container, Project, Tech, Techs, URL, URLs } from './styled';
 function Projects() {
   return (
     <Section>
-      <SectionHeader>Proyectos</SectionHeader>
+      <SectionHeader>Projects</SectionHeader>
       <Container>
         {projects.map(({ name, github, techs, url, styles }) => (
           <Project key={name} bgPos={styles.bgPos}>
@@ -31,7 +30,7 @@ function Projects() {
                         <Toast direction="bottom" className="toast">
                           {tech.label}
                         </Toast>
-                        {Icon && <Icon />}
+                        {Icon && <Icon className="icon" />}
                       </Tech>
                     );
                   })}

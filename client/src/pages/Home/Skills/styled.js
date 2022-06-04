@@ -1,25 +1,5 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
-  .SkillsContainer {
-    position: relative;
-    max-width: 100%;
-    overflow: hidden;
-    overflow-x: scroll;
-    list-style: none;
-    gap: 1rem;
-    display: flex;
-    padding: 2rem 2rem;
-
-    min-height: calc(7rem + 4rem);
-
-    scrollbar-width: none;
-    ::-webkit-scrollbar {
-      display: none;
-    }
-  }
-`;
-
 export const Options = styled.ul`
   list-style: none;
   display: grid;
@@ -54,4 +34,25 @@ export const Option = styled.li`
     css`
       color: var(--primary);
     `}
+`;
+
+export const Container = styled.div`
+  .SkillsContainer {
+    position: relative;
+    max-width: 100%;
+    /*
+    overflow: hidden;
+    overflow-x: scroll;
+    */
+    list-style: none;
+    gap: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 2rem 2rem;
+
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
 `;

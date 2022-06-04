@@ -16,8 +16,8 @@ const projects = [
       area: '1 / 2 / 3 / 3',
     },
     techs: [
-      { label: 'TS', bg: colors.ts, icon: icons.ts },
-      { label: 'JS', bg: colors.js, icon: icons.js },
+      { label: 'TypeScript', bg: colors.ts, icon: icons.ts },
+      { label: 'JavaScript', bg: colors.js, icon: icons.js },
       { label: 'React', bg: colors.react, icon: icons.react },
       { label: 'Redux', bg: colors.redux, icon: icons.redux },
       { label: 'Express', bg: colors.express, icon: icons.express },
@@ -56,6 +56,20 @@ const projects = [
       { label: 'Express', bg: colors.express, icon: icons.express },
       { label: 'Sequelize', bg: colors.sequelize, icon: icons.sequelize },
       { label: 'PostgreSQL', bg: colors.postgresql, icon: icons.postgresql },
+    ],
+  },
+  {
+    name: 'Rick And Morty',
+    github: 'https://github.com/estebanorlandi4/RickAndMorty',
+    url: 'https://rick-and-morty-blush-ten.vercel.app/',
+    styles: {
+      bg: PokemonImage,
+      bgPos: 'center',
+    },
+    techs: [
+      { label: 'JavaScript', bg: colors.js, icon: icons.js },
+      { label: 'Next', bg: colors.next, icon: icons.next },
+      { label: 'Graphql', bg: colors.graphql, icon: icons.graphql },
     ],
   },
 ];

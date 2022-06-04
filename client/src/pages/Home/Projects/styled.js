@@ -3,18 +3,26 @@ import breakpoints from '../../../utils/breakpoints';
 
 export const Container = styled.div`
   margin: 2rem 0 0 0;
-  display: flex;
-  flex-flow: column;
-  gap: 4rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+
+  @media screen and (${breakpoints.tablet}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and (${breakpoints.mobile}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const projectDark = ({ theme }) => (theme.isDark ? css`` : '');
 export const Project = styled.article`
+  width: 100%;
   position: relative;
   display: flex;
-  flex-flow: row;
+  flex-flow: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0.5rem;
   height: 100%;
   box-shadow: 0 0.15rem 0.3rem #0000;
   transition: all 0.25s;
@@ -22,8 +30,6 @@ export const Project = styled.article`
   .info {
     display: flex;
     flex-flow: column;
-    gap: 1rem;
-
     width: 100%;
   }
 
@@ -35,13 +41,13 @@ export const Project = styled.article`
   }
 
   img {
-    width: 10rem;
+    width: 100%;
     height: auto;
     border-radius: 5px;
   }
 
   h3 {
-    font-size: 1.25rem;
+    font-size: 1rem;
     text-transform: uppercase;
   }
 
@@ -54,11 +60,7 @@ export const Project = styled.article`
         `
       : ''}
 
-  ${({ area }) =>
-    area &&
-    css`
-      grid-area: ${area};
-    `}
+  ${({ area }) => area && css``}
 
   ${({ bgPos }) =>
     bgPos &&
@@ -69,15 +71,6 @@ export const Project = styled.article`
   ${projectDark}
 
   @media screen and (min-width: ${breakpoints.values.pc - 100}px) {
-    :nth-child(2n) {
-      flex-flow: row-reverse;
-      .info {
-        align-items: flex-end;
-        .top {
-          align-items: flex-end;
-        }
-      }
-    }
   }
 `;
 
@@ -130,4 +123,8 @@ export const Tech = styled.li`
       background-color: ${bg};
       color: #fff;
     `}
+  .icon {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
 `;
