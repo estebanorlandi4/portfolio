@@ -2,6 +2,7 @@ import { DiCss3, DiHtml5, DiJavascript1, DiReact } from 'react-icons/di';
 import {
   SiEslint,
   SiExpress,
+  SiFigma,
   SiGit,
   SiGithub,
   SiGraphql,
@@ -12,6 +13,8 @@ import {
   SiPostgresql,
   SiRedux,
   SiSequelize,
+  SiSocketdotio,
+  SiStyledcomponents,
   SiTypescript,
 } from 'react-icons/si';
 
@@ -25,6 +28,8 @@ export const colors = {
   redux: '#764abc',
   next: '#000000',
   graphql: '#e10098',
+  styled: '#db7093',
+  socket: '#010101',
 
   // Back End
   node: '#339933',
@@ -38,6 +43,7 @@ export const colors = {
   git: '#F05032',
   eslint: '#4B32C3',
   linux: '#FCC624',
+  figma: '#a058fd',
 };
 
 export const icons = {
@@ -62,6 +68,9 @@ export const icons = {
   git: SiGit,
   eslint: SiEslint,
   linux: SiLinux,
+  figma: SiFigma,
+  styled: SiStyledcomponents,
+  socket: SiSocketdotio,
 };
 
 export const frontSkills = [
@@ -73,6 +82,8 @@ export const frontSkills = [
   { name: 'Redux', icon: icons.redux, color: colors.redux },
   { name: 'Next', icon: icons.next, color: colors.next },
   { name: 'Graphql', icon: icons.graphql, color: colors.graphql },
+  { name: 'styled-components', icon: icons.styled, color: colors.styled },
+  { name: 'Socket.io', icon: icons.socket, color: colors.socket },
 ];
 
 export const backSkills = [
@@ -88,6 +99,7 @@ export const toolsSkills = [
   { name: 'Git', icon: icons.git, color: colors.git },
   { name: 'Eslint', icon: icons.eslint, color: colors.eslint },
   { name: 'Linux', icon: icons.linux, color: colors.linux },
+  { name: 'Figma', icon: icons.figma, color: colors.figma },
 ];
 
 const difference = 10;

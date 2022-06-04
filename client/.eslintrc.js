@@ -3,7 +3,12 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'prettier',
+    'plugin:import/recommended',
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -11,7 +16,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier'],
+  plugins: ['react', 'prettier', 'import'],
   rules: {
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
@@ -23,5 +28,11 @@ module.exports = {
       { required: { some: ['nesting', 'id'] } },
     ],
     'no-unused-vars': 'off',
+  },
+
+  settings: {
+    'import/resolver': {
+      node: { paths: ['src'] },
+    },
   },
 };
