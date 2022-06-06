@@ -1,4 +1,4 @@
-import CV from '../../../assets/Esteban Orlandi - CV - Full Stack.pdf';
+import CV from 'assets/Esteban Orlandi - CV - EN - Full Stack.pdf';
 import { useArrayInterval, useTagAnimation } from '../../../hooks';
 import { variants } from '../../../utils/motionVariants';
 import { Container, Header, Name, Resume, Tag } from './styled';

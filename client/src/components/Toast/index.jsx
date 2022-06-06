@@ -39,6 +39,7 @@ const ToastContainer = styled.span`
 
   background-color: #000;
   color: #fff;
+  width: max-content;
 
   transition: all 0.25s;
 
